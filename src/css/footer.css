@@ -1,0 +1,128 @@
+/* ======= Base (Mobile First) ======= */
+.footer {
+  display: flex;
+  padding: 48px 20px;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  align-self: stretch;
+  background-color: #000;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  align-self: stretch;
+}
+
+.footer-logo .logo {
+  display: flex;
+  width: 84px;
+  height: 36px;
+  padding: 10.625px 0 0 6.182px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.footer-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-menu a {
+  color: #fff;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column-reverse; /* ← важливо */
+  align-items: center;
+  gap: 32px;
+  align-self: stretch;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-socials svg {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer-copy {
+  color: #fff;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  text-align: center;
+}
+
+/* ======= Tablet (≥768px) ======= */
+@media (min-width: 768px) {
+  .footer {
+    padding: 64px;
+    gap: 64px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+  }
+
+  .footer-menu {
+    flex-direction: row;
+  }
+
+  .footer-socials {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .footer-socials svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* ======= Desktop (≥1440px) ======= */
+@media (min-width: 1440px) {
+  .footer {
+    width: 1440px;
+    margin: 0 auto;
+    padding: 80px 64px;
+    gap: 80px;
+  }
+
+  .footer-divider {
+    width: 1312px;
+  }
+}
