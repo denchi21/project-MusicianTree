@@ -1,0 +1,214 @@
+.artist-section {
+  background-color: #060307;
+  margin-top: 64px;
+  margin-bottom: 64px;
+}
+
+.artist-header {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+
+}
+
+.artist-second-header {
+  font-family: 'Epilogue', Sans Serif;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 32px;
+}
+
+.atrist-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.atrist-item {
+  background-color: #060307;
+}
+
+.atrist-item-img {
+  width: 100%;
+  margin-bottom: 24px;
+  border-radius: 16px;
+}
+
+.atrist-ganre-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.atrist-ganre-item {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.artist-name {
+  font-family: 'Epilogue', Sans Serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.artist-description {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0%;
+  margin-bottom: 24px;
+}
+
+.artist-learn-btn {
+  background-color: #060307;
+  color: white;
+  border: 1px solid transparent;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0%;
+  margin-bottom: 64px;
+  cursor: pointer;
+  align-items: center;
+  padding: 0;
+}
+
+.learn-btn-svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  margin-left: 17px;
+}
+
+.artist-load-btn {
+  background-color: #764191;
+  width: 100%;
+  color: #ffffff;
+  padding: 10px 83px;
+  border-radius: 12px;
+  box-shadow:
+    0px 1px 2px 0px var(--OpacityNeutralDarkest5),
+    0px -2px 1px 0px #00000033 inset,
+    0px 0px 0px 1px var(--OpacityNeutralDarkest15) inset,
+    0px 2px 1px 0px #FFFFFF40 inset,
+    0px 32px 24px 0px #FFFFFF0D inset;
+  cursor: pointer;
+  border-color: transparent;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.load-btn-svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  margin-left: 12px;
+}
+
+/* tablet min-width: 768px */
+
+@media screen and (min-width: 768px) {
+  .atrist-ganre-list {
+    justify-content: flex-start;
+  }
+
+  .artist-learn-btn {
+    margin-bottom: 64px;
+    margin-bottom: 32px;
+  }
+
+  .artist-container {
+    width: 704px;
+  }
+
+  .atrist-list {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+
+  .atrist-list {
+    width: 100%;
+  }
+
+  .artist-load-btn {
+    width: 340px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+/* desktop min-width: 1440px */
+@media screen and (min-width: 1440px) {
+
+  .artist-section {
+    margin: 0 auto;
+    margin-top: 112px;
+    margin-bottom: 112px;
+  }
+
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .artist-container {
+    width: 1312px;
+  }
+
+  .artist-second-header {
+    font-size: 60px;
+    margin-bottom: 80px;
+    width: 550px;
+  }
+
+  .atrist-list {
+    gap: 32px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .atrist-item {
+    /* width: calc((100% - 32px) / 2);
+    flex-basis: calc(50% - 16px);
+    max-width: calc(50% - 16px); */
+
+    flex: 0 1 calc((100% -  32px) / 2);
+  }
+
+  .atrist-item-img {
+    width: 100%;
+  }
+
+  .artist-learn-btn {
+    margin-bottom: 0px;
+  }
+
+  .artist-load-btn {
+    width: 170px;
+    padding: 10px 24px;
+    margin-top: 64px;
+  }
+
+}
