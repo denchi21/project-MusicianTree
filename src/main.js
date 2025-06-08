@@ -17,6 +17,7 @@ import {
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
+
 const list = document.querySelector('.artist-list');
 export const loadMoreBtn = document.querySelector('.artist-load-btn');
 
@@ -87,6 +88,21 @@ async function loadArtists() {
 
  }
 }
+
+//  При натисканні на кнопку Learn more - МОДАЛКА
+
+export const artistList = document.querySelector('.artist-list');
+
+artistList.addEventListener('click', (e) => {
+  const learnMoreBtn = e.target.closest('.artist-learn-btn');
+  if (!learnMoreBtn) return;
+
+  const artistId = learnMoreBtn.dataset.id;  // id
+  console.log( 'ID виконавця:', artistId);
+
+  // -----!!!Тут треба відкрти модалку!!!---
+});
+
 
 
 
