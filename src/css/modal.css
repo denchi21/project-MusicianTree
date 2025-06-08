@@ -34,6 +34,12 @@
     color: #fff;
 }
 
+.artist-photo{
+  border-radius: 16px;
+  width: 272px;
+  height: 167px;
+}
+
 .years-title{
   font-family: "IBM Plex Sans", sans-serif;
     font-weight: 600;
