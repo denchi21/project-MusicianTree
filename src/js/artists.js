@@ -1,9 +1,18 @@
-
-function truncateText(text, maxLength) {
-    return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
+export function truncateText(text, maxLength) {
+  if (typeof text !== 'string') {
+    return '';
   }
+    return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
+}
 
-  const descElement = document.getElementById('artist-description');
-  const maxLength = 67; 
+//  всі елементи з класом .artist-description
+const descElements = document.querySelectorAll('.artist-description');
+const maxLength = 67;
 
-  descElement.textContent = truncateText(descElement.textContent, maxLength);
+// Для кожного елемента з цим класом обрізаєм текст
+descElements.forEach(descElement => {
+  if (descElement) {
+    const truncatedText = truncateText(descElement.textContent, maxLength);
+    descElement.textContent = truncatedText;
+  }
+});
