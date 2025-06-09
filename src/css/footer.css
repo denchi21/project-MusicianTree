@@ -4,7 +4,7 @@
   padding: 48px 20px;
   flex-direction: column;
   align-items: center;
-  gap: 48px;
+  /* gap: 48px; */
   align-self: stretch;
   background-color: #000;
   width: 100%;
@@ -17,17 +17,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 80px; /* ← було 32px */
+  gap: 32px; /* ← було 32px */
   align-self: stretch;
 }
 
-.footer-logo .logo {
+.footer-logo {
   display: flex;
-  width: 84px;
-  height: 36px;
-  padding: 10.625px 0 0 6.182px;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
+}
+
+.logo-desktop,
+.logo-mobile {
+  width: 106.636px;
+  height: 30.201px;
+  flex-shrink: 0;
+}
+
+.logo-desktop {
+  display: none;
+}
+
+.logo-mobile {
+  display: block;
 }
 
 .footer-menu {
@@ -38,7 +50,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-bottom: 80px; /* ← відступ після меню */
+  margin-bottom: 48px; /* ← відступ після меню */
 }
 
 .footer-menu a {
@@ -116,11 +128,21 @@
 @media (min-width: 768px) {
   .footer {
     padding: 64px;
-    gap: 64px;
+    /* gap: 64px; */
   }
 
   .footer-top {
     flex-direction: column;
+  }
+
+  .logo-desktop {
+    display: block;
+    width: 106.636px;
+    height: 30.201px;
+  }
+
+  .logo-mobile {
+    display: none;
   }
 
   .footer-menu {
@@ -149,7 +171,7 @@
     width: 1440px;
     margin: 0 auto;
     padding: 80px 64px;
-    gap: 80px;
+    /* gap: 80px; */
   }
 
   .footer-divider {
