@@ -2,13 +2,33 @@
     font-size: 0;
 }
 
-.icon{
-  color:white;
-  background-color: #fff;
+
+.janr-item:hover,
+.janr-item:focus {
+  color: gray;
+}
+.modal-close-btn:focus,
+.modal-close-btn:hover{
+fill: gray;
+} 
+
+.modal-close-btn{
+  top: 16px;
+  right: 16px;
+  position: absolute;
+  background-color: transparent;
+  border:none;
+  fill:#fff
+  
 }
 
+
+
+
 .icon-youtube{
-  background-color: #fff;
+  border: none;
+  fill:#fff; 
+
 }
 
 .contact-modal{
@@ -43,6 +63,7 @@
   border-radius: 16px;
   width: 272px;
   height: 167px;
+
 }
 
 .years-title{
@@ -78,6 +99,8 @@
     max-width: 100%;
   gap: 16px;
 }
+
+
 
   .janr-item{
       color: #fff;
