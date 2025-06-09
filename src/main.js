@@ -2,6 +2,7 @@ import Swiper from 'swiper';
 import 'swiper/css';
 
 import './js/basicAPI';
+
 import './js/artists';
 import './js/render-functions';
 
@@ -102,7 +103,5 @@ artistList.addEventListener('click', (e) => {
 
   // -----!!!Тут треба відкрти модалку!!!---
 });
-
-
 
 
