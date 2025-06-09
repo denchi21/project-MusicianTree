@@ -3,5 +3,5 @@ import 'swiper/css';
 
 import './js/basicAPI';
 
+import './js/artists'
 
-import './js/modal';
