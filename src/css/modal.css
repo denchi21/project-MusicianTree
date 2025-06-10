@@ -68,10 +68,6 @@ fill: gray;
 
 }
 
-.container-modal{
-  
-}
-
 .modal{
   padding: 64px 16px;
   background: #060307;
@@ -185,9 +181,6 @@ color: #fff;
 text-align: left;
 }
 
-.name-column{
-
-}
 
 .name-column-item{
   font-family: "IBM Plex Sans", sans-serif;
