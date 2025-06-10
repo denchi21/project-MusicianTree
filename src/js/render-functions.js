@@ -48,3 +48,8 @@ export function hideLoadMoreButton() {
   loadMoreBtn.classList.remove('is-active');
 };
 
+export function showLoadMoreButton() {
+  loadMoreBtn.classList.remove('is-hidden');
+  loadMoreBtn.classList.add('is-active');
+};
+
