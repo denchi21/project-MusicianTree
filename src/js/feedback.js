@@ -1,7 +1,7 @@
 import Swiper from 'swiper';
 import 'swiper/css';
 import { fetchData } from './basicAPI.js';
-import { Notify } from 'notiflix';
+import iziToast from 'izitoast';
 
 document.addEventListener('DOMContentLoaded', () => {
   const feedbackSection = document.querySelector('.section#reviews');
@@ -17,9 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
       swiperContainer: swiperContainer,
       paginationContainer: paginationContainer,
     });
-    Notify.failure(
-      'Failed to initialize feedback section. Please check the HTML structure.'
-    );
+    iziToast.error({
+      title: 'Error',
+      message:
+        'Failed to initialize feedback section. Please check the HTML structure.',
+    });
     return;
   }
 
@@ -41,7 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const reviews = data.data || data;
     if (!Array.isArray(reviews)) {
       console.error('No valid data array found:', data);
-      Notify.failure('Failed to load feedback data. Invalid response format.');
+      iziToast.error({
+        title: 'Error',
+        message: 'Failed to load feedback data. Invalid response format.',
+      });
       return;
     }
 
@@ -146,6 +151,9 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(error => {
       console.error('Fetch error:', error);
       loader.style.display = 'none';
-      Notify.failure('Failed to load feedback. Please try again later.');
+      iziToast.error({
+        title: 'Error',
+        message: 'Failed to load feedback. Please try again later.',
+      });
     });
 });

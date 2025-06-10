@@ -1,3 +1,247 @@
-.artists {
-    font-size: 0;
+/* -------------loader---------------- */
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 8px solid lightgray;
+  border-top: 8px solid #764191;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.is-active {
+  display: block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ------------artists-sevtion---------------- */
+.artist-section {
+  background-color: #060307;
+  margin-top: 64px;
+  margin-bottom: 64px;
+}
+
+.artist-header {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.artist-second-header {
+  font-family: 'Epilogue', Sans Serif;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin-bottom: 32px;
+}
+
+.artist-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.artist-item {
+  background-color: #060307;
+}
+
+.artist-item-img {
+  width: 100%;
+  margin-bottom: 24px;
+  border-radius: 16px;
+}
+
+.artist-genre-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content:flex-start;
+  gap: 16px;
+}
+
+.artist-genre-item {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.artist-name {
+  font-family: 'Epilogue', Sans Serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
+.artist-description {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0%;
+  margin-bottom: 24px;
+}
+
+.artist-learn-btn {
+  background-color: #060307;
+  color: white;
+  border: 1px solid transparent;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0%;
+  margin-bottom: 64px;
+  cursor: pointer;
+  align-items: center;
+  padding: 0;
+}
+
+.artist-learn-btn:hover {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.learn-btn-svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  margin-left: 17px;
+}
+
+.artist-load-btn {
+  background-color: #764191;
+  width: 100%;
+  color: #ffffff;
+  padding: 10px 83px;
+  border-radius: 12px;
+  box-shadow:
+    0px 1px 2px 0px var(--OpacityNeutralDarkest5),
+    0px -2px 1px 0px #00000033 inset,
+    0px 0px 0px 1px var(--OpacityNeutralDarkest15) inset,
+    0px 2px 1px 0px #FFFFFF40 inset,
+    0px 32px 24px 0px #FFFFFF0D inset;
+  cursor: pointer;
+  border-color: transparent;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+
+.artist-load-btn:hover {
+  font-weight: bold;
+  background-color: #9763af;
+}
+.load-btn-svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  margin-left: 12px;
+}
+
+/* --------tablet min-width: 768px----------- */
+
+@media screen and (min-width: 768px) {
+  .artist-genre-list {
+    justify-content: flex-start;
+  }
+
+  .artist-learn-btn {
+    margin-bottom: 64px;
+    margin-bottom: 32px;
+  }
+
+  .artist-container {
+    width: 704px;
+  }
+
+  .artist-list {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+
+  .artist-list {
+    width: 100%;
+  }
+
+  .artist-load-btn {
+    width: 340px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+/* -----------desktop min-width: 1440px------------- */
+
+@media screen and (min-width: 1440px) {
+
+  .artist-section {
+    margin: 0 auto;
+    margin-top: 112px;
+    margin-bottom: 112px;
+  }
+
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .artist-container {
+    width: 1312px;
+  }
+
+  .artist-second-header {
+    font-size: 60px;
+    margin-bottom: 80px;
+    width: 550px;
+  }
+
+  .artist-list {
+    gap: 32px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .artist-item {
+    flex: 0 1 calc((100% -  32px) / 2);
+  }
+
+  .artist-item-img {
+    width: 100%;
+  }
+
+  .artist-learn-btn {
+    margin-bottom: 0px;
+  }
+
+  .artist-load-btn {
+    width: 170px;
+    padding: 10px 24px;
+    margin-top: 64px;
+  }
 }
