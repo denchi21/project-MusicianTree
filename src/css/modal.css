@@ -231,13 +231,7 @@ text-align: left;
 @media only screen and (min-width: 768px) {
   .container-modal {
     max-width: 768px;
-    padding: 0 24px;
-  }
-
-  .container-modal{
-    padding-right: 33px;
-    padding-left: 33px;
-
+    padding: 64px 24px;
   }
 
   .modal-style{
@@ -293,4 +287,29 @@ text-align: left;
       max-width: 1280px;
       padding: 0 100px;
     }
+
+    .big-box{
+      display: flex;
+      align-items: center;
+      column-gap: 32px;
+    }
+
+    .years-item-over{
+      width: 576px;
+    }
+
+    .folder{
+      display: flex;
+      width: 576px;
+
+      position: static;
+        width: 576px;
+        height: 374px;
+        /* Автолейаут */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      
+    } 
 }
