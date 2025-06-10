@@ -2,6 +2,8 @@ import { truncateText } from './artists';
 
 import { loadMoreBtn } from '../main';
 
+
+
 const loader = document.querySelector('.loader');
 
 // genre function

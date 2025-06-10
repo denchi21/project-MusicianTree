@@ -6,8 +6,13 @@ import './js/basicAPI';
 import './js/feedback.js';
 import 'css-star-rating/css/star-rating.min.css';
 
+import './js/header';
+
+
 import './js/artists';
 import './js/render-functions';
+
+import './js/modal';
 
 import './css/styles.css';
 import { fetchArtists, LIMIT } from './js/basicAPI';
@@ -100,3 +105,4 @@ artistList.addEventListener('click', e => {
 
   // -----!!!Тут треба відкрити модалку!!!---
 });
+
