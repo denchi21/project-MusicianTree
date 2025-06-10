@@ -1,5 +1,5 @@
 <section class="container-modal">
-    <div class="modal">
+    <div class="modal modal-style">
         <div class="container-modal-1">
             <button class="modal-close-btn" type="button">
                 <svg class="icon" width="14.06" height="14.06">
@@ -7,7 +7,30 @@
                 </svg>
             </button>
             <h2 class="title-name">Unlike Pluto</h2>
-            <img class="artist-photo" src="img/modalimagex.jpg"  alt="Foto">
+            <!-- <img class="artist-photo"  src="img/modalimagex.jpg"  alt="Foto">
+                                    <div  class="order-photo"></div> -->
+                            <picture class="order-photo">
+                                <source 
+                                    media="(min-width: 1280px)"                                     
+                                    srcset="img/modal-comp1x-min.jpg,
+                                            img/modal-comp2x-min.jpg"
+                                >
+                                <source 
+                                    media="(min-width: 768px)" 
+                                    srcset="img/modal-desctop1x-min.jpg,
+                                    img/modal-desctop2x-min.jpg"
+                                >
+                                <source 
+                                    media="(max-width: 767px)" 
+                                    srcset="img/modal-mobile1x-min.jpg,
+                                    img/modal-mobile2x-min.jpg"
+                                >
+                                 <img class="artist-photo"  src="/src/img/modal-comp1x-min.jpg"  alt="Foto">
+                                <!-- <img class="order-photo" src="/img/your-order/rectangle_comp1x.jpg" alt="girl"> -->
+                            </picture>
+                        
+            
+            
             <div class="folder">
                 <div class="folder-box">
                     <h3 class="years-title">Years active</h3>
@@ -27,27 +50,29 @@
                 </div>
                 <div class="folder-box">
                     <h3 class="years-title">Biography</h3>
-                    <p class="years-item">Armond Arabshahi, known by his stage name Unlike Pluto, is an American singer, songwriter, music producer, and former
+                    <p class="years-item years-item-over">Armond Arabshahi, known by his stage name Unlike Pluto, is an American singer, songwriter, music producer, and former
                     DJ. He is mainly known for his song "Everything Black", released under the record label Monstercat in 2017, which he
                     produced with Philadelphia-based vocalist and DJ Mike Taylor.</p>
                 
                 </div>
-                <div class="janr">
-                    <p class="janr-item">Alternative</p>
-                    <p class="janr-item">Pop</p>
-                    <p class="janr-item">Rock</p>
-                    <p class="janr-item">Indie</p>
-                </div>
+
                           
             </div>
+            <div class="janr">
+                <p class="janr-item">Alternative</p>
+                <p class="janr-item">Pop</p>
+                <p class="janr-item">Rock</p>
+                <p class="janr-item">Indie</p>
+            </div>
+            <h2 class="album-title">Albums</h2>  
             <div class="album-box">
-                <h2 class="album-title">Albums</h2>
+                <!-- <h2 class="album-title">Albums</h2> -->
                 <div class="album-title-box">
                     <h3 class="name-album">Ghost Gardens</h3>
                     <ul class="name-column track-name">
                         <li class="name-column-item item-col-1">Track</li>
-                        <li class="name-column-item item-col-1">Time</li>
-                        <li class="name-column-item item-col-1">Link</li>
+                        <li class="name-column-item item-col-2">Time</li>
+                        <li class="name-column-item item-col-3">Link</li>
                     </ul>
                     <ul class="track-name">
                         <li class="track-name-item item-col-1">Rip Me Apart</li>
