@@ -6,6 +6,8 @@ import './js/basicAPI';
 import './js/artists';
 import './js/render-functions';
 
+import './js/modal';
+
 import './css/styles.css';
 import { fetchArtists, LIMIT } from './js/basicAPI';
 import {
