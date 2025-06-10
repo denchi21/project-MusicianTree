@@ -4,7 +4,7 @@
   padding: 48px 20px;
   flex-direction: column;
   align-items: center;
-  gap: 48px;
+  /* gap: 48px; */
   align-self: stretch;
   width: 100%;
   max-width: 1440px;
@@ -16,17 +16,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: 32px; /* ← було 32px */
   align-self: stretch;
 }
 
-.footer-logo .logo {
+.footer-logo {
   display: flex;
-  width: 84px;
-  height: 36px;
-  padding: 10.625px 0 0 6.182px;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
+}
+
+.logo-desktop,
+.logo-mobile {
+  width: 106.636px;
+  height: 30.201px;
+  flex-shrink: 0;
+}
+
+.logo-desktop {
+  display: none;
+}
+
+.logo-mobile {
+  display: block;
 }
 
 .footer-menu {
@@ -37,6 +49,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  margin-bottom: 48px; /* ← відступ після меню */
 }
 
 .footer-menu a {
@@ -46,6 +59,23 @@
   font-weight: 600;
   line-height: 150%;
   text-decoration: none;
+}
+
+.footer-menu a:hover,
+.footer-menu a:focus,
+.footer-menu a:active {
+  color: var(--Color-White, #fff);
+  font-family: 'IBM Plex Sans';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
 }
 
 .footer-bottom {
@@ -64,6 +94,18 @@
 .footer-socials svg {
   width: 40px;
   height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.footer-socials svg:hover {
+  transform: scale(1.3);
+}
+
+.footer-divider-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
 }
 
 .footer-divider {
@@ -85,11 +127,21 @@
 @media (min-width: 768px) {
   .footer {
     padding: 64px;
-    gap: 64px;
+    /* gap: 64px; */
   }
 
   .footer-top {
     flex-direction: column;
+  }
+
+  .logo-desktop {
+    display: block;
+    width: 106.636px;
+    height: 30.201px;
+  }
+
+  .logo-mobile {
+    display: none;
   }
 
   .footer-menu {
@@ -118,7 +170,7 @@
     width: 1440px;
     margin: 0 auto;
     padding: 80px 64px;
-    gap: 80px;
+    /* gap: 80px; */
   }
 
   .footer-divider {
