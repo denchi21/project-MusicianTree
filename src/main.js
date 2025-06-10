@@ -12,7 +12,7 @@ import './js/header';
 import './js/artists';
 import './js/render-functions';
 
-import './js/modal';
+import { openModal} from './js/modal';
 
 import './css/styles.css';
 import { fetchArtists, LIMIT } from './js/basicAPI';
@@ -103,6 +103,7 @@ artistList.addEventListener('click', e => {
   const artistId = learnMoreBtn.dataset.id;
   console.log('ID виконавця:', artistId);
 
-  // -----!!!Тут треба відкрити модалку!!!---
+  openModal(artistId)
+
 });
 

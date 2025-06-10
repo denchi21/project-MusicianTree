@@ -46,3 +46,21 @@ export async function fetchArtists(page = 1) {
     throw error;
   }
 }
+
+export async function fetchArtistData(id) {
+  try {
+    const response = await axios.get(`${BASE_URL}/artists/${id}`, {});
+
+    // Пeрeвіряем, щоо response.data існує
+    if (!response.data) {
+      console.error('Error: API returned no data');
+      return {};
+    }
+
+    return response.data || {};
+
+  } catch (error) {
+    console.error('Error:', error);
+    throw error
+  }
+}
