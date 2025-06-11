@@ -123,7 +123,6 @@ export async function loadArtists(isLoadMore = false) {
     hideLoader();
   }
 }
-
 // -------------------search-section------------------------
 
 // пошук по інпуту desctop
