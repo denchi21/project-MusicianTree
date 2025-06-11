@@ -1,6 +1,9 @@
 /* -------------loader---------------- */
 
 .loader {
+  position: absolute;
+  right: 475px;
+  bottom: 5px;
   width: 60px;
   height: 60px;
   border: 8px solid lightgray;
@@ -11,7 +14,7 @@
 }
 
 .is-hidden {
-  display: none;
+  display: none !important;
 }
 
 .is-active {
@@ -24,7 +27,7 @@
   }
 }
 
-/* ------------artists-sevtion---------------- */
+/* ------------artists-section---------------- */
 .artist-section {
   background-color: #060307;
   margin-top: 64px;
@@ -73,7 +76,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content:flex-start;
+  justify-content: flex-start;
   gap: 16px;
 }
 
@@ -118,10 +121,9 @@
   padding: 0;
 }
 
-.artist-learn-btn:hover {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
-  font-weight: bold;
+.artist-learn-btn:hover,
+.artist-learn-btn:active {
+  color: #764191;
 }
 
 .learn-btn-svg {
@@ -150,17 +152,233 @@
   line-height: 1.5;
 }
 
-
-.artist-load-btn:hover {
+.artist-load-btn:hover,
+.artist-load-btn:active {
   font-weight: bold;
   background-color: #9763af;
 }
+
 .load-btn-svg {
   width: 14px;
   height: 14px;
   fill: currentColor;
   margin-left: 12px;
 }
+
+.container-btn-filters {
+margin-bottom: 12px;
+font-family: "Roboto", sans-serif;
+font-weight: 700;
+font-size: 18px;
+}
+
+.search-filters-btn {
+  font-family: "IBM Plex Sans", sans-serif;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background: var(--Color-Scheme-2-Foreground, #1E1C1F);
+  border: 1px solid transparent;
+  padding: 10px 45px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.search-filters-btn-svg {
+  width: 11px;
+  height: 7px;
+  fill: #ffffff;
+  margin-left: 10px;
+  align-content: center;
+}
+
+/* --------search-------- */
+ .artist-container {
+  position: relative; 
+}
+
+.filters-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-btn-search {
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+}
+
+.reset-btn {
+  display: none;
+} 
+
+
+  .filters {
+  font-family: "IBM Plex Sans", sans-serif;
+  background-color: #1E1C1F;
+  border-radius: 12px;
+  color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: 'Epilogue', sans-serif;
+  padding: 12px;
+}
+
+  .reset-btn {
+  display: block;
+}
+
+.filters-search,
+.filters-select {
+  display: block;
+
+}
+
+.filters-header-desctop {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0;
+  display: block;
+}
+
+.filters-header-desctop {
+ display: none;
+} 
+
+  .reset-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .filters-search .search-wrapper {
+    position: relative;
+  }
+
+  .filters-search .filters-input {
+    width: 100%;
+    padding: 10px 12px 10px 36px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+  }
+
+  .filters-search .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+  }
+
+  .filters-select select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: transparent;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+  }
+
+  .filters-select select option {
+    background-color: #060307;
+    color: #ffffff;
+    padding: 24px;
+  }
+
+.js-form {
+     overflow: hidden;
+     max-height: 0;
+     opacity: 0;
+     transition: all 0.5s ease-in-out;
+  }
+
+.js-form.is-open {
+  max-height: 500px;
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.filters-input:focus {
+  background-color: #1E1C1F;
+  outline: none; 
+
+}
+
+/* empty */
+
+.artist-empty {
+  background-color: var(--Color-Scheme-3-Foreground, #23132B);
+  padding: 16px;
+  border-radius: 16px;
+  width: 100%;
+}
+
+.artist-empty-svg {
+  width: 33px;
+  height: 33px;
+  margin-bottom: 27px;
+  fill: #ffffff;
+}
+
+.artist-empty-header {
+  font-family: 'Epilogue' sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.artist-empty-text {
+  font-family: "IBM Plex Sans", sans-serif;
+ font-weight: 400;
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.artist-empty-btn {
+  width: 100%;
+  padding: 10px 78px;
+  border-radius: 12px;
+  border: transparent;
+}
+
+.artist-form-wrapper {
+  text-align: right
+}
+
+.form-wrapper {
+  position: relative;
+}
+
+.artist-search {
+ position: absolute;
+ width: 100%;
+}
+
+
+
+
 
 /* --------tablet min-width: 768px----------- */
 
@@ -193,6 +411,57 @@
     display: block;
     margin: 0 auto;
   }
+
+.search-filters-btn {
+  padding: 10px 24px;
+  margin-bottom: 16px;
+  width: 233px;
+}
+
+.search-filters-btn-svg {
+  width: 11px;
+  height: 7px;
+  fill: #ffffff;
+  margin-left: 10px;
+  align-content: center;
+ }
+
+/* ----search----768 */
+
+.container-btn-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+} 
+
+.artist-search {
+    width: 304px;
+    margin-bottom: 12px;
+    background:  #1E1C1F;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    right: 0px;
+  }
+
+
+  .filters {
+    background:  #1E1C1F;
+  }
+
+  .artist-empty {
+  padding: 32px;
+}
+
+  .artist-empty-header {
+  font-size: 48px;
+}
+
+.artist-empty-btn {
+  width: 148px;
+  padding: 10px 24px;
+}
+
 }
 
 /* -----------desktop min-width: 1440px------------- */
@@ -228,7 +497,7 @@
   }
 
   .artist-item {
-    flex: 0 1 calc((100% -  32px) / 2);
+    flex: 0 1 calc((100% - 32px) / 2);
   }
 
   .artist-item-img {
@@ -240,8 +509,51 @@
   }
 
   .artist-load-btn {
+    position: absolute;
+    left: 740px;
     width: 170px;
     padding: 10px 24px;
     margin-top: 64px;
+  }
+
+  /* ----search----1440 */
+
+  .search-filters-btn {
+    display: none;
+  }
+
+  .filters-header-desctop {
+  display: block;
+} 
+
+.filters {
+    background: #000000;
+  }
+
+.container-btn-filters {
+  display: none;
+}
+
+ .artist-search {
+    position: initial;
+    border: none;
+    border-radius: 12px;
+  }
+
+  .artist-container-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap:32px
+  }
+
+  .reset-btn:hover, 
+  .reset-btn:active {
+    color: #764191;
+  }
+
+  .js-form {
+     max-height: 100%;
+     opacity: 1;
   }
 }

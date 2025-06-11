@@ -26,13 +26,27 @@ export async function fetchData(url, options = {}) {
   }
 }
 
-export async function fetchArtists(page = 1) {
+export async function fetchArtists(page = 1, name = '', genre = '', sortName = '') {
   try {
+
+    const params = new URLSearchParams();
+    params.append('page', page);
+    params.append('limit', LIMIT);
+    if (name.trim()) {
+      params.append('name', name);
+    }
+     if (genre.trim()) {
+      params.append('genre', genre);
+    }
+     if (sortName.trim()) {
+      params.append('sortName', sortName);
+    }
+    // расширить параметры и добавить глобальны переменные в мейн
+
+
+    console.log(name);
     const response = await axios.get(`${BASE_URL}/artists`, {
-      params: {
-        page,
-        limit: LIMIT,
-      },
+      params: params
     });
 
     if (!response.data) {
