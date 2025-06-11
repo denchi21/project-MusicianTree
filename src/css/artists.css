@@ -156,6 +156,7 @@
 .artist-load-btn:active {
   font-weight: bold;
   background-color: #9763af;
+  color: #764191;
 }
 
 .load-btn-svg {
