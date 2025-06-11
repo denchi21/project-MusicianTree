@@ -15,48 +15,40 @@ export async function fetchData(url, options = {}) {
       ...options,
     });
 
-    // Пeрeвіряем, щоо response.data існує
     if (!response.data) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     return response.data;
   } catch (error) {
-    console.error('Error fetching data:', error);
     throw error;
   }
 }
 
 export async function fetchArtists(page = 1, name = '', genre = '', sortName = '') {
   try {
-
     const params = new URLSearchParams();
     params.append('page', page);
     params.append('limit', LIMIT);
     if (name.trim()) {
       params.append('name', name);
     }
-     if (genre.trim()) {
+    if (genre.trim()) {
       params.append('genre', genre);
     }
-     if (sortName.trim()) {
+    if (sortName.trim()) {
       params.append('sortName', sortName);
     }
-    // расширить параметры и добавить глобальны переменные в мейн
 
-
-    console.log(name);
     const response = await axios.get(`${BASE_URL}/artists`, {
       params: params
     });
 
     if (!response.data) {
-      console.error('Error: API returned no data');
       return [];
     }
 
     return response.data || [];
   } catch (error) {
-    console.error('Error:', error);
     throw error;
   }
 }
@@ -65,16 +57,13 @@ export async function fetchArtistData(id) {
   try {
     const response = await axios.get(`${BASE_URL}/artists/${id}`, {});
 
-    // Пeрeвіряем, щоо response.data існує
     if (!response.data) {
-      console.error('Error: API returned no data');
       return {};
     }
 
     return response.data || {};
 
   } catch (error) {
-    console.error('Error:', error);
-    throw error
+    throw error;
   }
 }

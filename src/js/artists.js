@@ -114,11 +114,8 @@ export async function loadArtists(isLoadMore = false) {
 
     page++;
   } catch (error) {
-    console.error('Error loading artists:', error);
-    iziToast.error({
-      message: 'Something went wrong. Please try again later.',
-      position: 'topCenter',
-    });
+    // Handle error silently
+    return;
   } finally {
     hideLoader();
   }

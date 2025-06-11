@@ -157,3 +157,31 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 });
+
+function initializeFeedback() {
+  const elements = {
+    feedbackList: document.querySelector('.feedback-list'),
+    feedbackForm: document.querySelector('.feedback-form'),
+    modal: document.querySelector('.feedback-modal'),
+    openModalBtn: document.querySelector('.feedback-modal-open'),
+    closeModalBtn: document.querySelector('.feedback-modal-close'),
+  };
+
+  if (!Object.values(elements).every(Boolean)) {
+    return;
+  }
+
+  return elements;
+}
+
+async function fetchFeedbackData() {
+  try {
+    const data = await fetchData(`${BASE_URL}/feedback`);
+    if (!Array.isArray(data)) {
+      return [];
+    }
+    return data;
+  } catch (error) {
+    return [];
+  }
+}

@@ -73,8 +73,7 @@ function formatDuration(duration) {
 }
 
 function transformTracksToAlbums(tracksList) {
-  if (!tracksList || !Array.isArray(tracksList)) {
-    console.log('No tracks data or invalid format');
+  if (!Array.isArray(tracksList) || tracksList.length === 0) {
     return [];
   }
 
@@ -106,7 +105,9 @@ function transformTracksToAlbums(tracksList) {
 }
 
 function createTrackList(tracks) {
-  if (!tracks || !Array.isArray(tracks)) return null;
+  if (!Array.isArray(tracks) || tracks.length === 0) {
+    return null;
+  }
 
   const container = document.createElement('div');
   container.className = 'tracks-container';
@@ -164,7 +165,9 @@ function createTrackList(tracks) {
 }
 
 function createAlbumSection(albums) {
-  if (!albums || !Array.isArray(albums) || albums.length === 0) return null;
+  if (!Array.isArray(albums) || albums.length === 0) {
+    return null;
+  }
 
   const container = document.createElement('div');
   container.className = 'album-box';
@@ -306,7 +309,6 @@ function renderModalContent(data) {
 
 async function openModal(id) {
   if (!modalSection || !modalContent || !loader) {
-    console.error('Required modal elements not found');
     return;
   }
 
@@ -328,13 +330,11 @@ async function openModal(id) {
     loader.style.display = 'none';
     modalContent.style.display = 'block';
 
-    // Add event listeners with null checks
     const newCloseBtn = modalContent.querySelector('.modal-close-btn');
     if (newCloseBtn) {
       newCloseBtn.addEventListener('click', closeModal);
     }
     
-    // Add event listeners only if elements exist
     if (document) {
       document.addEventListener('keydown', handleEscKey);
     }
@@ -344,7 +344,6 @@ async function openModal(id) {
     }
 
   } catch (error) {
-    console.error('Error in modal:', error);
     if (loader && modalContent) {
       loader.style.display = 'none';
       modalContent.style.display = 'block';
@@ -360,7 +359,6 @@ async function openModal(id) {
 
 function closeModal() {
   if (!modalSection || !modalContent || !loader) {
-    console.error('Required modal elements not found');
     return;
   }
 
@@ -371,7 +369,6 @@ function closeModal() {
   modalContent.style.display = 'block';
   modalContent.innerHTML = '';
 
-  // Remove event listeners with null checks
   const closeBtn = modalContent.querySelector('.modal-close-btn');
   if (closeBtn) {
     closeBtn.removeEventListener('click', closeModal);
@@ -386,7 +383,6 @@ function closeModal() {
   }
 }
 
-// Initialize modal elements with error handling
 function initializeModal() {
   try {
     const modalElements = {
@@ -397,27 +393,22 @@ function initializeModal() {
       loader: document.getElementById('modalLoader')
     };
 
-    // Check if all required elements exist
     Object.entries(modalElements).forEach(([name, element]) => {
       if (!element) {
         throw new Error(`Required modal element "${name}" not found`);
       }
     });
 
-    // Update global variables
     window.modalSection = modalElements.modalSection;
     window.modalOverlay = modalElements.modalOverlay;
     window.modalContent = modalElements.modalContent;
     window.closeModalBtn = modalElements.closeModalBtn;
     window.loader = modalElements.loader;
-
-    console.log('Modal initialized successfully');
   } catch (error) {
-    console.error('Error initializing modal:', error);
+    throw error;
   }
 }
 
-// Call initialize function when DOM is loaded
 document.addEventListener('DOMContentLoaded', initializeModal);
 
 export { openModal };
