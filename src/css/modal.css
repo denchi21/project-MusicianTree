@@ -43,7 +43,7 @@ body.modal-open {
     font-size: 0;
     background: #060307;
     width: 288px;
-    padding: 64px 16px;
+    padding: 48px 16px;
     position: relative;
     border-radius: 16px;
 }
@@ -60,8 +60,8 @@ fill: gray;
 
 .modal-close-btn{
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 24px;
+  right: 24px;
   width: 24px;
   height: 24px;
   background-color: transparent;
@@ -89,19 +89,24 @@ fill: gray;
 .title-name{
   font-family: "Epilogue", sans-serif;
     font-weight: 700;
-    font-size: 20px;
-    line-height: 150%;
-    letter-spacing: -0.01em;
+    font-size: 24px;
+    line-height: 1.5;
     text-align: center;
     color: #fff;
     margin-bottom: 24px;
+}
+
+.artist-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
 }
 
 .artist-photo{
   width: 100%;
   height: auto;
   border-radius: 16px;
-  margin-bottom: 24px;
   object-fit: cover;
 }
 
@@ -109,8 +114,7 @@ fill: gray;
   font-family: "IBM Plex Sans", sans-serif;
     font-weight: 600;
     font-size: 18px;
-    line-height: 150%;
-    text-align: left;
+    line-height: 1.5;
     color: #fff;
 
 }
@@ -118,124 +122,134 @@ fill: gray;
 .years-item{
   font-family: "IBM Plex Sans", sans-serif;
     font-weight: 400;
-    font-size: 18px;
-    line-height: 150%;
+    font-size: 16px;
+    line-height: 1.5;
     color: #fff;
-    text-align: left;
 }
 
-  .folder{
-    /* margin-bottom: 16px; */
-    flex-direction: column;
-    display: flex;
-      flex-wrap: wrap;
-    gap: 16px;
-  }
-
-.janr{
+.folder {
   display: flex;
-  flex-wrap: wrap;
-    max-width: 100%;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.key-info-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 
+.biography {
+  grid-column: 1 / -1;
+}
 
+.folder-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
-  .janr-item{
-      color: #fff;
-      font-family: "IBM Plex Sans", sans-serif;
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 150%;
-      letter-spacing: 0%;
-      text-align: left;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 6px;
-        padding: 4px 10px;
-        background: transparent;
-        display:inline-block;
-  }
+.album-box {
+  margin-top: 32px;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
 
-  .album-box{
-display: grid;
-gap: 32px;
-grid-template-columns: 1fr;
-  }
-
-  .album-title{
+.album-title {
+  grid-column: 1 / -1;
   font-family: "Epilogue", sans-serif;
   font-weight: 700;
   font-size: 24px;
-  line-height: 130%;
-  letter-spacing: -0.01em;
+  line-height: 1.3;
   color: #fff;
-  text-align: left;
-  }
+  margin-bottom: 0;
+}
 
-.album-title-box{
+.album-title-box {
   background: #1e1c1f;
   border-radius: 16px;
   padding: 16px;
-  height: 100%;
-}
-
-.name-album{
-font-family: "IBM Plex Sans", sans-serif;
-font-weight: 600;
-font-size: 16px;
-line-height: 150%;
-color: #fff;
-text-align: left;
-margin-bottom: 16px;
-}
-
-
-.name-column-item{
-  font-family: "IBM Plex Sans", sans-serif;
-    font-weight: 600;
-    font-size: 8px;
-    line-height: 150%;
-    color: #fff;
-}
-
-.track-name{
   display: flex;
-    flex-direction: row;
-
+  flex-direction: column;
+  gap: 16px;
 }
 
-
-
-.track-name:nth-child(even){
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-}
-
-.track-name-item{
+.name-album {
   font-family: "IBM Plex Sans", sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 150%;
-    color: #fff;
- 
-      padding: 4px;
-      text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+  margin-bottom: 0;
+}
 
-      box-sizing: border-box;
-      word-break: break-word;
-      display:flex;
-      min-height: 50px;
-      align-items: center;
+.track-name {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  gap: 8px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.track-name:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.track-name:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.track-name:nth-child(odd):hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.track-name-item {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #fff;
 }
 
 .track-name-item:last-child {
   border-right: none;
 }
 
+.youtube-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+
+.youtube-link:hover {
+  transform: scale(1.2);
+}
+
+.icon-youtube {
+  fill: #fff;
+  transition: fill 0.2s ease;
+}
+
+.youtube-link:hover .icon-youtube {
+  fill: #ff0000;
+}
+
+.name-column-item {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 150%;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
 /* Column width definitions */
 .item-col-1 {
   flex: 1;
-  font-weight: 600;
   text-align: left;
 }
 
@@ -245,20 +259,27 @@ margin-bottom: 16px;
 }
 
 .item-col-3 {
-  flex-basis: 30%;
-  /* item-col-3 takes 30% of space */
-  /* Even if empty, flex-basis ensures it occupies its space */
-  /* You can add a placeholder or icon here if desired */
+  width: 40px;
+  display: flex;
+  justify-content: center;
 }
-
 
 @media screen and (min-width: 768px) {
     .container-m {
       max-width: 768px;
       padding: 0 32px;
     }
+    .artist-info-container {
+      flex-direction: row;
+      gap: 32px;
+    }
     .artist-photo {
-      height: 400px;
+      width: 300px;
+      height: 300px;
+      flex-shrink: 0;
+    }
+    .folder {
+      flex: 1;
     }
     .album-box {
       grid-template-columns: repeat(2, 1fr);
@@ -267,11 +288,17 @@ margin-bottom: 16px;
       width: 704px;
       padding: 64px 24px;
     }
+    .key-info-container {
+      grid-template-columns: repeat(4, 1fr);
+    }
 }
 @media screen and (min-width: 1440px) {
     .container-m {
       max-width: 1280px;
       padding: 0 100px;
+    }
+    .folder {
+      flex: 1;
     }
     .album-box {
       grid-template-columns: repeat(3, 1fr);
@@ -279,6 +306,10 @@ margin-bottom: 16px;
     .modal {
       width: 1080px;
       padding: 64px 32px;
+    }
+    .artist-photo {
+      width: 400px;
+      height: 400px;
     }
 }
 
@@ -296,5 +327,51 @@ margin-bottom: 16px;
 @keyframes loader-modal {
   100% {
     transform: rotate(360deg);
+  }
+}
+
+.janr {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  gap: 8px;
+  margin-top: 8px;
+  grid-column: 1 / -1;
+}
+
+.janr-item {
+  color: #fff;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 4px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  background: transparent;
+  display: inline-block;
+}
+
+.albums-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+
+.tracks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media screen and (min-width: 768px) {
+  .albums-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .albums-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
