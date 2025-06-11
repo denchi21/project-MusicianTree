@@ -265,6 +265,18 @@ font-size: 18px;
     position: relative;
   }
 
+  .filters-input-btn {
+    position: absolute;
+    top: 50%;
+   left: 0;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+  }
+
   .filters-search .filters-input {
     width: 100%;
     padding: 10px 12px 10px 36px;

@@ -12,7 +12,7 @@ import {
 // DOM-селектори
 const list = document.querySelector('.artist-list');
 export const loadMoreBtn = document.querySelector('.artist-load-btn');
-const searchInput = document.querySelector('.filters-input');
+const searchInputBtn = document.querySelector('.js-form');
 const resetBtns = document.querySelectorAll('.reset-btn-js');
 const searchBtnMobile = document.querySelector('.search-filters-btn');
 const jsForm = document.querySelector('.js-form');
@@ -32,7 +32,7 @@ export function initArtists() {
   loadMoreBtn.addEventListener('click', () => loadArtists(true));
   document.addEventListener('DOMContentLoaded', loadArtists);
 
-  searchInput.addEventListener('input', handleSearchInput);
+  searchInputBtn.addEventListener('submit', handleSearchInputBtn);
   resetBtns.forEach(resetBtn => {
     resetBtn.addEventListener('click', handleResetPush);
   });
@@ -123,11 +123,14 @@ export async function loadArtists(isLoadMore = false) {
 // -------------------search-section------------------------
 
 // пошук по інпуту desctop
-function handleSearchInput(event) {
- searchName = event.target.value.trim();
+function handleSearchInputBtn(event) {
+ event.preventDefault();
+ searchName = event.target.search.value.trim();
+ console.log(searchName)
  page = 1;
  loadArtists();
 }
+
 
 // пошук по інпуту desctop
 function handleSortInput(event) {
@@ -149,7 +152,7 @@ function handleResetPush (event) {
  genre = '';
  sortName = '';
 
- searchInput.value = '';
+ searchInputBtn.value = '';
  sortSelect.value = '';
  genreSelect.value = '';
 
