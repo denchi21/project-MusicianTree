@@ -301,79 +301,44 @@ function renderModalContent(data) {
 }
 
 async function openModal(id) {
-  if (!modalSection || !modalContent || !loader) {
-    return;
-  }
-
-  modalSection.classList.add('is-open');
-  document.body.classList.add('modal-open');
-
-  loader.style.display = 'block';
-  modalContent.style.display = 'none';
-
   try {
-    const artistData = await fetchArtistData(id);
+    modalSection.classList.add('is-open');
     
-    if (!artistData) {
-      throw new Error('No artist data received');
+    // Show loader
+    if (loader) {
+      loader.style.display = 'block';
     }
 
-    renderModalContent(artistData);
+    // Fetch data
+    const data = await fetchArtistData(id);
     
-    loader.style.display = 'none';
-    modalContent.style.display = 'block';
-
-    const newCloseBtn = modalContent.querySelector('.modal-close-btn');
-    if (newCloseBtn) {
-      newCloseBtn.addEventListener('click', closeModal);
-    }
-    
-    if (document) {
-      document.addEventListener('keydown', handleEscKey);
-    }
-    
-    if (modalOverlay) {
-      modalOverlay.addEventListener('click', handleOverlayClick);
-    }
-
-  } catch (error) {
-    if (loader && modalContent) {
+    // Hide loader
+    if (loader) {
       loader.style.display = 'none';
-      modalContent.style.display = 'block';
-      modalContent.innerHTML = `
-        <div class="error-message">
-          <p>Sorry, we couldn't load the artist information.</p>
-          <p>Error: ${error.message}</p>
-        </div>
-      `;
     }
+
+    // Render content
+    renderModalContent(data);
+
+    // Add event listeners
+    document.addEventListener('keydown', handleEscKey);
+    modalSection.addEventListener('click', (event) => {
+      // Проверяем, что клик был именно по бэкдропу (modalSection), а не по контенту
+      if (event.target === modalSection) {
+        closeModal();
+      }
+    });
+  } catch (error) {
+    console.error('Error opening modal:', error);
+    closeModal();
   }
 }
 
 function closeModal() {
-  if (!modalSection || !modalContent || !loader) {
-    return;
-  }
-
   modalSection.classList.remove('is-open');
-  document.body.classList.remove('modal-open');
-
-  loader.style.display = 'none';
-  modalContent.style.display = 'block';
+  document.removeEventListener('keydown', handleEscKey);
+  modalSection.removeEventListener('click', handleOverlayClick);
   modalContent.innerHTML = '';
-
-  const closeBtn = modalContent.querySelector('.modal-close-btn');
-  if (closeBtn) {
-    closeBtn.removeEventListener('click', closeModal);
-  }
-  
-  if (document) {
-    document.removeEventListener('keydown', handleEscKey);
-  }
-  
-  if (modalOverlay) {
-    modalOverlay.removeEventListener('click', handleOverlayClick);
-  }
 }
 
 function initializeModal() {
