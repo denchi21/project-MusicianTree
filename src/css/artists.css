@@ -216,7 +216,6 @@ font-size: 18px;
   display: none;
 } 
 
-
   .filters {
   font-family: "IBM Plex Sans", sans-serif;
   background-color: #1E1C1F;
@@ -335,7 +334,6 @@ font-size: 18px;
 .filters-input:focus {
   background-color: #1E1C1F;
   outline: none; 
-
 }
 
 /* empty */
@@ -389,10 +387,6 @@ font-size: 18px;
  position: absolute;
  width: 100%;
 }
-
-
-
-
 
 /* --------tablet min-width: 768px----------- */
 
@@ -458,7 +452,6 @@ font-size: 18px;
     right: 0px;
   }
 
-
   .filters {
     background:  #1E1C1F;
   }
@@ -475,7 +468,6 @@ font-size: 18px;
   width: 148px;
   padding: 10px 24px;
 }
-
 }
 
 /* -----------desktop min-width: 1440px------------- */
