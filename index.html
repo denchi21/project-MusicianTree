@@ -23,7 +23,7 @@
     <script type="module" crossorigin src="/project-MusicianTree/index.js"></script>
     <link rel="modulepreload" crossorigin href="/project-MusicianTree/assets/vendor-W_xo0hru.js">
     <link rel="stylesheet" crossorigin href="/project-MusicianTree/assets/vendor-C-nhCPql.css">
-    <link rel="stylesheet" crossorigin href="/project-MusicianTree/assets/index-hu0tWODo.css">
+    <link rel="stylesheet" crossorigin href="/project-MusicianTree/assets/index-B04Wy3V9.css">
   </head>
   <body>
     <header class="page-header">
@@ -110,22 +110,118 @@
 </section>
 
       <section class="artist-section" id="artists">
-   <div class="container">
-     <div class="artist-container">
+  <div class="container">
+    <div class="artist-container">
       <h2 class="artist-header">Artists</h2>
       <h3 class="artist-second-header">Explore Your New Favorite Artists</h3>
-      <ul class="artist-list"></ul>
-      <span class="loader is-hidden" ></span>
-      <button type="button" class="artist-load-btn">Load More 
-       <svg class="load-btn-svg">
-         <use href="/project-MusicianTree/assets/icons-svg-PRdAIOkt.svg#icon-arrow"></use>
-       </svg>
-      </button>
-     </div>
 
+      <div class="artist-container-wrapper">
+        <div class="container-btn-search">
+          <h3 class="container-btn-filters">Filters</h3>
+          <div class="artist-form-wrapper">
+            <button class="search-filters-btn" type="button">
+              Search and Filters
+              <svg class="search-filters-btn-svg">
+                <use href="/project-MusicianTree/assets/icons-svg-CWkATfl2.svg#icon-down"></use>
+              </svg>
+            </button>
+
+
+            
+              <form action="submit" class="js-form artist-search">
+              <div class="filters">
+                <div class="filters-header">
+                  <h3 class="filters-header-desctop">Filters</h3>
+                  <button type="button" class="reset-btn reset-btn-js">Reset</button>
+                </div>
+
+                <div class="filters-search">
+                  <div class="search-wrapper">
+                    <svg
+                      class="search-icon"
+                      width="16"
+                      height="16"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="7" cy="7" r="5"></circle>
+                      <line x1="11" y1="11" x2="15" y2="15"></line>
+                    </svg>
+                    <input
+                      type="text"
+                      name="query"
+                      placeholder="Search"
+                      class="filters-input"
+                    />
+                  </div>
+                </div>
+
+                <div class="filters-select">
+                  <select class="filters-dropdown-sort">
+                    <option value="default" disabled selected>
+                      Sorting
+                      <svg class="search-filters-btn-svg">
+                        <use href="/img/icons-svg.svg#icon-down"></use>
+                      </svg>
+                    </option>
+                    <option value="">Default</option>
+                    <option value="asc">A-Z</option>
+                    <option value="desc">Z-A</option>
+                  </select>
+                </div>
+
+                <div class="filters-select">
+                  <select class="filters-dropdown-genre">
+                    <option value="" selected>Genre</option>
+                    <option value="all">All Genres</option>
+                    <option value="rock">Rock</option>
+                    <option value="pop">Pop</option>
+                    <option value="hip-hop">Hip-hop</option>
+                    <option value="jazz">Jazz</option>
+                    <option value="classical">Classical</option>
+                    <option value="electronic">Electronic</option>
+                    <option value="reggae">Reggae</option>
+                  </select>
+                </div>
+
+              </div>
+            </form>
+            
+          </div>
+        </div>
+
+
+        <ul class="artist-list"></ul>
+
+         <!-- empty -->
+        <div class="artist-empty visually-hidden">
+          <svg class="artist-empty-svg">
+                <use href="/project-MusicianTree/assets/icons-svg-CWkATfl2.svg#icon-attantion"></use>
+          </svg>
+          <h2 class="artist-empty-header">Silence on the stage…</h2>
+          <p class="artist-empty-text">Looks like no artists match your filters. <br>
+            Try changing them or hit “Reset Filters” to bring back the beat.</p>
+          <button type="button" class="artist-empty-btn reset-btn-js">
+        Reset filters
+      </button>
+
+
+        </div>
+      </div>
+
+      <span class="loader is-hidden"></span>
+      <button type="button" class="artist-load-btn">
+        Load More
+        <svg class="load-btn-svg">
+          <use href="/project-MusicianTree/assets/icons-svg-CWkATfl2.svg#icon-arrow"></use>
+        </svg>
+      </button>
+    </div>
   </div>
 </section>
-
 
       <section class="aboutUS" id="about">
   <div class="container">
