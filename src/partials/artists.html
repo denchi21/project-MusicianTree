@@ -26,7 +26,9 @@
 
                 <div class="filters-search">
                   <div class="search-wrapper">
-                    <svg
+                    <input class="filters-input" type="text" name="search" placeholder="Search"/>
+                    <button class="filters-input-btn" type="submit">
+                      <svg
                       class="search-icon"
                       width="16"
                       height="16"
@@ -36,15 +38,9 @@
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     >
-                      <circle cx="7" cy="7" r="5"></circle>
-                      <line x1="11" y1="11" x2="15" y2="15"></line>
+                      <use href="/img/symbol-defs.svg#icon-search"></use>
                     </svg>
-                    <input
-                      type="text"
-                      name="query"
-                      placeholder="Search"
-                      class="filters-input"
-                    />
+                    </button>
                   </div>
                 </div>
 
