@@ -21,11 +21,11 @@ import{a as k,i as A,S as _}from"./assets/vendor-DzLxt0QD.js";(function(){const 
     <li class="name-column-item item-col-3">Link</li>
   `,t.appendChild(n),e.forEach((r,o)=>{const s=document.createElement("ul");s.className="track-name";const l=document.createElement("li");l.className="track-name-item item-col-1",l.textContent=r.strTrack||"Untitled";const c=document.createElement("li");c.className="track-name-item item-col-2",c.textContent=oe(r.intDuration);const a=document.createElement("li");if(a.className="track-name-item item-col-3",r.strMusicVid){const i=document.createElement("a");i.href=r.strMusicVid,i.target="_blank",i.rel="noopener noreferrer",i.title=`Watch ${r.strTrack} on YouTube`,i.innerHTML=`
         <svg class="icon-youtube" width="24" height="24">
-          <use href="${j()}/img/icon.svg#icon-Youtube"></use>
+          <use href="${j()}/img/symbol-defs.svg#icon-Youtube"></use>
         </svg>
       `,i.className="youtube-link",a.appendChild(i)}s.appendChild(l),s.appendChild(c),s.appendChild(a),t.appendChild(s)}),t}function ie(e){if(!Array.isArray(e)||e.length===0)return null;const t=document.createElement("div");t.className="album-box";const n=document.createElement("h2");n.className="album-title",n.textContent="Albums",t.appendChild(n);const r=document.createElement("div");return r.className="albums-grid",e.forEach(o=>{const s=document.createElement("div");s.className="album-title-box";const l=document.createElement("h3");if(l.className="name-album",l.textContent=o.strAlbum||"Untitled Album",s.appendChild(l),o.tracks&&Array.isArray(o.tracks)){const c=se(o.tracks);c&&s.appendChild(c)}t.appendChild(s)}),t}function ae(e){console.log("Artist data received:",e),d.innerHTML="";const t=re(e.tracksList);console.log("Transformed albums data:",t);const n=document.createElement("button");n.className="modal-close-btn",n.type="button",n.innerHTML=`
     <svg class="icon" width="24" height="24">
-      <use href="${j()}/img/icon.svg#icon-close"></use>
+      <use href="${j()}/img/symbol-defs.svg#icon-close"></use>
     </svg>
   `,d.appendChild(n);const r=document.createElement("h2");r.className="title-name",r.textContent=e.strArtist,d.appendChild(r);const o=document.createElement("div");if(o.className="artist-info-container",e.strArtistThumb){const i=document.createElement("img");i.className="artist-photo",i.src=e.strArtistThumb,i.alt=e.strArtist,o.appendChild(i)}const s=document.createElement("div");s.className="folder";const l=document.createElement("div");l.className="key-info-container",[{title:"Years active",content:e.intFormedYear?`${e.intFormedYear}–present`:void 0},{title:"Sex",content:e.strGender},{title:"Members",content:e.intMembers||"1"},{title:"Country",content:e.strCountry}].forEach(i=>{const u=$(i.title,i.content);u&&l.appendChild(u)}),s.appendChild(l);const a=$("Biography",e.strBiographyEN);if(a&&(a.className="folder-box biography",s.appendChild(a)),e.genres&&Array.isArray(e.genres)){const i=ne(e.genres);i&&s.appendChild(i)}if(o.appendChild(s),d.appendChild(o),t.length>0){const i=ie(t);i&&d.appendChild(i)}else console.log("No albums data found or invalid format")}async function ce(e){if(!(!y||!d||!f)){y.classList.add("is-open"),document.body.classList.add("modal-open"),f.style.display="block",d.style.display="none";try{const t=await Z(e);if(!t)throw new Error("No artist data received");ae(t),f.style.display="none",d.style.display="block";const n=d.querySelector(".modal-close-btn");n&&n.addEventListener("click",S),document&&document.addEventListener("keydown",F),E&&E.addEventListener("click",Y)}catch(t){f&&d&&(f.style.display="none",d.style.display="block",d.innerHTML=`
         <div class="error-message">
@@ -44,7 +44,7 @@ import{a as k,i as A,S as _}from"./assets/vendor-DzLxt0QD.js";(function(){const 
           <p class="artist-description">${R(t.strBiographyEN,67)}</p>
           <button type="button" class="artist-learn-btn" data-id="${t._id}">Learn More
             <svg class="learn-btn-svg">
-               <use href="img/icons-svg.svg#icon-icon"></use>
+               <use href="img/symbol-defs.svg#icon-icon"></use>
             </svg>
           </button>
         </li>`).join("")}function we(){C.classList.add("is-active"),C.classList.remove("is-hidden")}function Ee(){C.classList.add("is-hidden"),C.classList.remove("is-active")}pe();
