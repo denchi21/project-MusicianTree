@@ -2,6 +2,8 @@ import { truncateText } from './artists';
 
 import { loadMoreBtn } from '../main';
 
+
+
 const loader = document.querySelector('.loader');
 
 // genre function
@@ -29,6 +31,25 @@ export function renderArtists(artists) {
         </li>`;
   }).join('')
 }
+
+
+
+// export function renderModal(modal) {
+//   return albums.map(modal => {
+//     return `
+//     <ul class="track-name">
+          //   <li class="track-name-item item-col-1">${track.strTrack}</li>
+          //   <li class="track-name-item item-col-2">${track.intDuration}</li>
+          //   <li class="track-name-item item-col-3">
+          //     <a class="icon-youtube-a" target="_blank" href=""https://www.youtube.com/watch?v=VQH8ZTgna3Q"">
+          //       <svg class="icon-youtube" width="24" height="24">
+          //         <use href="img/icon.svg#icon-Youtube"></use></svg
+          //     ></a>
+          //   </li>
+          // </ul>;
+//   }).join('')
+// }
+
 
 // Показати лоадер
 export function showLoader() {

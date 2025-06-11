@@ -1,10 +1,44 @@
+/* ю */
+
+/* Показ/скрытие модалки */
+.container-modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: none;
+  z-index: 1000;
+}
+
+.container-modal.is-open {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-modal-1 {
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Блокировка скролла */
+body.modal-open {
+  overflow: hidden;
+  height: 100vh;
+}
+
+
+/* ю */
+
+
+
 .modal {
     font-size: 0;
 }
 
-.container-modal{
-    
-}
 
 .janr-item:hover,
 .janr-item:focus {
@@ -34,17 +68,13 @@ fill: gray;
 
 }
 
-.container-modal{
-  
-}
-
 .modal{
   padding: 64px 16px;
   background: #060307;
   width: 288px;
 }
 
-.container {
+.container-m {
   max-width: 320px;
   margin: 0 auto;
 }
@@ -151,9 +181,6 @@ color: #fff;
 text-align: left;
 }
 
-.name-column{
-
-}
 
 .name-column-item{
   font-family: "IBM Plex Sans", sans-serif;
@@ -224,13 +251,13 @@ text-align: left;
 
 
 @media screen and (min-width: 768px) {
-    .container {
+    .container-m {
       max-width: 768px;
       padding: 0 32px;
     }
   }
   @media screen and (min-width: 1280px) {
-    .container {
+    .container-m {
       max-width: 1280px;
       padding: 0 100px;
     }

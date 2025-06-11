@@ -2,10 +2,16 @@ import Swiper from 'swiper';
 import 'swiper/css';
 
 import './js/basicAPI';
+import './js/feedback.js';
+import 'css-star-rating/css/star-rating.min.css';
+
+import './js/header';
+
 
 import './js/artists';
 import './js/render-functions';
-import './js/search';
+
+import { openModal} from './js/modal';
 
 import './css/styles.css';
 import { fetchArtists, LIMIT } from './js/basicAPI';
@@ -117,38 +123,21 @@ export async function loadArtists(isLoadMore = false) {
 }
 
 //  При натисканні на кнопку Learn more - МОДАЛКА
-
 export const artistList = document.querySelector('.artist-list');
 
 artistList.addEventListener('click', e => {
   const learnMoreBtn = e.target.closest('.artist-learn-btn');
   if (!learnMoreBtn) return;
 
-  const artistId = learnMoreBtn.dataset.id; // id
-  console.log('ID виконавця:', artistId);
+  const artistId = learnMoreBtn.dataset.id;
 
-  // -----!!!Тут треба відкрти модалку!!!---
+  openModal(artistId)
+
 });
 
 // -------------------search-section------------------------
 
-// search mobile
-// export function onSearchBtnMobileClick(event) {
 
-
-// }
-
-// select search desctop
-// export function handleSelectChange(event) {
-
-//   const sortValue = event.target.value.trim();
-//  const genreValue = event.target.value.trim();
- 
-//  console.log(sortValue);
-//  console.log(genreValue);
-//   const selectedValue = event.target.value.trim();
-//   console.log(selectedValue);
-// }
 
 // пошук по інпуту desctop
 export function handleSearchInput(event) {
