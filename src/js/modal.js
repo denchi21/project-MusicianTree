@@ -6,13 +6,6 @@ const modalContent = modalSection.querySelector('.container-modal-1');
 const closeModalBtn = modalSection.querySelector('.modal-close-btn');
 const loader = document.getElementById('modalLoader');
 
-function getBasePath() {
-  // Check if we're on GitHub Pages
-  const isGitHubPages = window.location.hostname.includes('github.io');
-  // Get the repository name from the path if on GitHub Pages
-  const repoName = isGitHubPages ? window.location.pathname.split('/')[1] : '';
-  return isGitHubPages ? `/${repoName}` : '';
-}
 
 function handleEscKey(event) {
   if (event.key === 'Escape') {
@@ -146,7 +139,7 @@ function createTrackList(tracks) {
       link.title = `Watch ${track.strTrack} on YouTube`;
       link.innerHTML = `
         <svg class="icon-youtube" width="24" height="24">
-          <use href="${getBasePath()}/img/symbol-defs.svg#icon-Youtube"></use>
+          <use href="/img/symbol-defs.svg#icon-Youtube"></use>
         </svg>
       `;
       
@@ -216,7 +209,7 @@ function renderModalContent(data) {
   closeBtn.type = 'button';
   closeBtn.innerHTML = `
     <svg class="icon" width="24" height="24">
-      <use href="${getBasePath()}/img/symbol-defs.svg#icon-close"></use>
+      <use href="/img/symbol-defs.svg#icon-close"></use>
     </svg>
   `;
   modalContent.appendChild(closeBtn);
