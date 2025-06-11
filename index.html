@@ -2,8 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/project-MusicianTree/assets/favicon-DTyAYBSo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Musician Tree</title>
+    <link rel="icon" type="image/png" href="/project-MusicianTree/assets/favicon-DTyAYBSo.png" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
@@ -17,19 +18,23 @@
       href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,700;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,700;1,700&display=swap"
       rel="stylesheet"
     />
-
-    <title>Musician Tree</title>
     <script type="module" crossorigin src="/project-MusicianTree/index.js"></script>
     <link rel="modulepreload" crossorigin href="/project-MusicianTree/assets/vendor-DzLxt0QD.js">
     <link rel="stylesheet" crossorigin href="/project-MusicianTree/assets/vendor-C-nhCPql.css">
     <link rel="stylesheet" crossorigin href="/project-MusicianTree/assets/index-Ts6-T7bi.css">
   </head>
   <body>
-    <header class="page-header">
+    <header>
+      <header class="page-header">
   <div class="container header-container">
     <nav class="header-nav">
-      <a class="header-logo" href="../index.html">
-        <svg class="header-icon" width="119" height="51">
+      <a class="header-logo" href="/">
+        <svg
+          class="header-icon"
+          width="119"
+          height="51"
+          aria-label="ArtistsHub logo"
+        >
           <use href="/project-MusicianTree/assets/symbol-defs-CLLdJH0W.svg#icon-logo"></use>
         </svg>
       </a>
@@ -45,22 +50,27 @@
         </li>
       </ul>
     </nav>
-    <button class="burger-btn" type="button">
+    <button class="burger-btn" type="button" aria-label="Menu">
       <svg class="burger-icon" width="24" height="24">
         <use href="/project-MusicianTree/assets/symbol-defs-CLLdJH0W.svg#icon-burger"></use>
       </svg>
     </button>
   </div>
 </header>
-<div class="mobile-menu">
+<div class="mobile-menu" role="dialog" aria-modal="true">
   <div class="container mobile-menu-container">
     <div class="mobile-header">
-      <a class="header-logo" href="../index.html">
-        <svg class="header-icon" width="119" height="51">
+      <a class="header-logo" href="/">
+        <svg
+          class="header-icon"
+          width="119"
+          height="51"
+          aria-label="ArtistsHub logo"
+        >
           <use href="/project-MusicianTree/assets/symbol-defs-CLLdJH0W.svg#icon-logo"></use>
         </svg>
       </a>
-      <button class="mobile-menu-close">
+      <button class="mobile-menu-close" type="button" aria-label="Close menu">
         <svg class="mobile-menu-icon" width="24" height="24">
           <use href="/project-MusicianTree/assets/symbol-defs-CLLdJH0W.svg#icon-close"></use>
         </svg>
@@ -82,10 +92,9 @@
   </div>
 </div>
 
+    </header>
 
     <main>
-      <!-- Loads the specified .html file -->
-
       <section class="section-hero">
   <div class="container-hero">
     <div class="info-hero">
@@ -100,16 +109,12 @@
         </p>
       </div>
       <div class="button-hero-container">
-        <button
-          class="button-hero"
-          type="button"
-          onclick="location.href='#artists'"
-        >
+        <a href="#artists" class="button-hero">
           Explore Artists
           <svg class="icon-play" width="24" height="24">
             <use href="/project-MusicianTree/assets/symbol-defs-CLLdJH0W.svg#icon-right-arrow"></use>
           </svg>
-        </button>
+        </a>
       </div>
     </div>
   </div>
@@ -127,15 +132,15 @@
           <div class="artist-form-wrapper">
             <button class="search-filters-btn" type="button">
               Search and Filters
-              <svg class="search-filters-btn-svg">
+              <svg class="search-filters-btn-svg" width="16" height="16">
                 <use href="/project-MusicianTree/assets/symbol-defs-CLLdJH0W.svg#icon-down"></use>
               </svg>
             </button>
 
-            <form action="submit" class="js-form artist-search">
+            <form class="js-form artist-search">
               <div class="filters">
                 <div class="filters-header">
-                  <h3 class="filters-header-desctop">Filters</h3>
+                  <h4 class="filters-header-desctop">Filters</h4>
                   <button type="button" class="reset-btn reset-btn-js">
                     Reset
                   </button>
@@ -143,32 +148,23 @@
 
                 <div class="filters-search">
                   <div class="search-wrapper">
-                    <input class="filters-input" type="text" name="search" placeholder="Search"/>
+                    <input
+                      class="filters-input"
+                      type="text"
+                      name="search"
+                      placeholder="Search"
+                    />
                     <button class="filters-input-btn" type="submit">
-                      <svg
-                      class="search-icon"
-                      width="16"
-                      height="16"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <use href="/project-MusicianTree/assets/symbol-defs-CLLdJH0W.svg#icon-search"></use>
-                    </svg>
+                      <svg class="search-icon" width="16" height="16">
+                        <use href="/project-MusicianTree/assets/symbol-defs-CLLdJH0W.svg#icon-search"></use>
+                      </svg>
                     </button>
                   </div>
                 </div>
 
                 <div class="filters-select">
                   <select class="filters-dropdown-sort">
-                    <option value="default" disabled selected>
-                      Sorting
-                      <svg class="search-filters-btn-svg">
-                        <use href="/img/symbol-defs.svg#icon-down"></use>
-                      </svg>
-                    </option>
+                    <option value="default" disabled selected>Sorting</option>
                     <option value="">Default</option>
                     <option value="asc">A-Z</option>
                     <option value="desc">Z-A</option>
@@ -196,7 +192,7 @@
         <ul class="artist-list"></ul>
 
         <div class="artist-empty visually-hidden">
-          <svg class="artist-empty-svg">
+          <svg class="artist-empty-svg" width="33" height="33">
             <use href="/project-MusicianTree/assets/symbol-defs-CLLdJH0W.svg#icon-attantion"></use>
           </svg>
           <h2 class="artist-empty-header">Silence on the stage…</h2>
@@ -213,7 +209,7 @@
       <span class="loader is-hidden"></span>
       <button type="button" class="artist-load-btn">
         Load More
-        <svg class="load-btn-svg">
+        <svg class="load-btn-svg" width="16" height="16">
           <use href="/project-MusicianTree/assets/symbol-defs-CLLdJH0W.svg#icon-arrow"></use>
         </svg>
       </button>
@@ -226,15 +222,18 @@
     <picture class="img-wrapper">
       <source
         media="(min-width:1440px)"
-        srcset="/project-MusicianTree/assets/team-desk-Bt09pt7S.jpg 1x, /project-MusicianTree/assets/team@2x-desk-DbH6BSEK.jpg 2x" />
+        srcset="/project-MusicianTree/assets/team-desk-Bt09pt7S.jpg 1x, /project-MusicianTree/assets/team@2x-desk-DbH6BSEK.jpg 2x"
+      />
       <source
         media="(min-width:768px)"
-        srcset="/project-MusicianTree/assets/team-tab-DnvTuil9.jpg 1x, ./img/aboutUS/team@2x-tab.jpg 2x" />
+        srcset="/project-MusicianTree/assets/team-tab-DnvTuil9.jpg 1x, /project-MusicianTree/assets/team@2x-tab-BDTg22Gm.jpg 2x"
+      />
       <source
         media="(max-width:767px)"
-        srcset="/project-MusicianTree/assets/teamImage-mob-CGLN0SlF.jpg 1x, /project-MusicianTree/assets/teamImage@2x-mob-w3F8jjRD.jpg 2x" />
-      <img class="img-team" src="/project-MusicianTree/assets/team-desk-Bt09pt7S.jpg" alt="team"
-    /></picture>
+        srcset="/project-MusicianTree/assets/teamImage-mob-CGLN0SlF.jpg 1x, /project-MusicianTree/assets/teamImage@2x-mob-w3F8jjRD.jpg 2x"
+      />
+      <img class="img-team" src="/project-MusicianTree/assets/team-desk-Bt09pt7S.jpg" alt="team" />
+    </picture>
 
     <div class="text-content">
       <img
@@ -302,13 +301,22 @@
 
       <div class="backdrop visually-hidden">
   <div class="modal-content visually-hidden">
-    <span class="close">&times;</span>
-      <h2 class="feedback-title">Submit feedback</h2>
+    <button type="button" class="close" aria-label="Close">&times;</button>
+    <h2 class="feedback-title">Submit feedback</h2>
     <div class="modal-container">
       <label for="client-name">Name</label>
-      <input type="text" class="modal-name" placeholder="Emily" />
+      <input
+        type="text"
+        id="client-name"
+        class="modal-name"
+        placeholder="Emily"
+      />
       <label for="client-message">Message</label>
-       <textarea class="your-message" id="message" placeholder="Type your message..."></textarea>
+      <textarea
+        class="your-message"
+        id="client-message"
+        placeholder="Type your message..."
+      ></textarea>
       <p class="testimonial">
         "ArtistsHub has transformed the way I discover new music. It's like
         having a personal DJ that knows my taste perfectly!"
@@ -320,27 +328,29 @@
         <span data-star="4">&#9733;</span>
         <span data-star="5">&#9733;</span>
       </div>
-    <div class="modal-button-container">
-      <button type="submit" class="button-send">
-        <span class="modal-button-text">Submit</button>
+      <div class="modal-button-container">
+        <button type="submit" class="button-send">
+          <span class="modal-button-text">Submit</span>
+        </button>
+      </div>
     </div>
-        </div>
   </div>
 </div>
 
-      <section class="container-modal">
-  <div class="modal">
+      <div class="container-modal">
+  <div class="modal" role="dialog" aria-modal="true">
     <button type="button" class="modal-close-btn" aria-label="Close modal">
       ×
     </button>
     <div class="loader-modal" id="modalLoader">Loading...</div>
     <div class="container-modal-1"></div>
   </div>
-</section>
+</div>
 
     </main>
 
-    <footer class="footer" role="contentinfo">
+    <footer>
+      <footer class="footer" role="contentinfo">
   <div class="footer-top">
     <div class="footer-logo">
       <div class="logo-desktop">
@@ -549,6 +559,7 @@
   </div>
 </footer>
 
+    </footer>
 
   </body>
 </html>
