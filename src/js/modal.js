@@ -139,7 +139,7 @@ function createTrackList(tracks) {
       link.title = `Watch ${track.strTrack} on YouTube`;
       link.innerHTML = `
         <svg class="icon-youtube" width="24" height="24">
-          <use href="../img/symbol-defs.svg#icon-Youtube"></use>
+          <use href="/img/symbol-defs.svg#icon-Youtube"></use>
         </svg>
       `;
       
@@ -209,7 +209,7 @@ function renderModalContent(data) {
   closeBtn.type = 'button';
   closeBtn.innerHTML = `
     <svg class="icon" width="24" height="24">
-      <use href="../img/symbol-defs.svg#icon-close"></use>
+      <use href="/img/symbol-defs.svg#icon-close"></use>
     </svg>
   `;
   modalContent.appendChild(closeBtn);
