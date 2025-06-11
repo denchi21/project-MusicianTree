@@ -10,15 +10,15 @@
           <div class="artist-form-wrapper">
             <button class="search-filters-btn" type="button">
               Search and Filters
-              <svg class="search-filters-btn-svg">
+              <svg class="search-filters-btn-svg" width="16" height="16">
                 <use href="/img/symbol-defs.svg#icon-down"></use>
               </svg>
             </button>
 
-            <form action="submit" class="js-form artist-search">
+            <form class="js-form artist-search">
               <div class="filters">
                 <div class="filters-header">
-                  <h3 class="filters-header-desctop">Filters</h3>
+                  <h4 class="filters-header-desctop">Filters</h4>
                   <button type="button" class="reset-btn reset-btn-js">
                     Reset
                   </button>
@@ -26,32 +26,23 @@
 
                 <div class="filters-search">
                   <div class="search-wrapper">
-                    <input class="filters-input" type="text" name="search" placeholder="Search"/>
+                    <input
+                      class="filters-input"
+                      type="text"
+                      name="search"
+                      placeholder="Search"
+                    />
                     <button class="filters-input-btn" type="submit">
-                      <svg
-                      class="search-icon"
-                      width="16"
-                      height="16"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <use href="/img/symbol-defs.svg#icon-search"></use>
-                    </svg>
+                      <svg class="search-icon" width="16" height="16">
+                        <use href="/img/symbol-defs.svg#icon-search"></use>
+                      </svg>
                     </button>
                   </div>
                 </div>
 
                 <div class="filters-select">
                   <select class="filters-dropdown-sort">
-                    <option value="default" disabled selected>
-                      Sorting
-                      <svg class="search-filters-btn-svg">
-                        <use href="/img/symbol-defs.svg#icon-down"></use>
-                      </svg>
-                    </option>
+                    <option value="default" disabled selected>Sorting</option>
                     <option value="">Default</option>
                     <option value="asc">A-Z</option>
                     <option value="desc">Z-A</option>
@@ -79,7 +70,7 @@
         <ul class="artist-list"></ul>
 
         <div class="artist-empty visually-hidden">
-          <svg class="artist-empty-svg">
+          <svg class="artist-empty-svg" width="33" height="33">
             <use href="/img/symbol-defs.svg#icon-attantion"></use>
           </svg>
           <h2 class="artist-empty-header">Silence on the stage…</h2>
@@ -96,7 +87,7 @@
       <span class="loader is-hidden"></span>
       <button type="button" class="artist-load-btn">
         Load More
-        <svg class="load-btn-svg">
+        <svg class="load-btn-svg" width="16" height="16">
           <use href="/img/symbol-defs.svg#icon-arrow"></use>
         </svg>
       </button>
