@@ -44,7 +44,7 @@ import{a as k,i as A,S as _}from"./assets/vendor-DzLxt0QD.js";(function(){const 
           <p class="artist-description">${R(t.strBiographyEN,67)}</p>
           <button type="button" class="artist-learn-btn" data-id="${t._id}">Learn More
             <svg class="learn-btn-svg">
-               <use href="/img/icons-svg.svg#icon-icon"></use>
+               <use href="img/icons-svg.svg#icon-icon"></use>
             </svg>
           </button>
         </li>`).join("")}function we(){C.classList.add("is-active"),C.classList.remove("is-hidden")}function Ee(){C.classList.add("is-hidden"),C.classList.remove("is-active")}pe();
