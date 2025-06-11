@@ -1,0 +1,30 @@
+/* Star Rating Styles */
+.star-rating {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.star {
+  width: 24px;
+  height: 24px;
+  fill: rgba(255, 255, 255, 0.2);
+  transition: fill 0.2s ease;
+}
+
+.star.active {
+  fill: #FFD700;
+}
+
+.star:hover {
+  fill: #FFD700;
+  cursor: pointer;
+}
+
+.star-rating:hover .star {
+  fill: rgba(255, 255, 255, 0.2);
+}
+
+.star-rating:hover .star:hover,
+.star-rating:hover .star:hover ~ .star {
+  fill: #FFD700;
+} 

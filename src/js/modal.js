@@ -6,6 +6,14 @@ const modalContent = modalSection.querySelector('.container-modal-1');
 const closeModalBtn = modalSection.querySelector('.modal-close-btn');
 const loader = document.getElementById('modalLoader');
 
+function getBasePath() {
+  // Check if we're on GitHub Pages
+  const isGitHubPages = window.location.hostname.includes('github.io');
+  // Get the repository name from the path if on GitHub Pages
+  const repoName = isGitHubPages ? window.location.pathname.split('/')[1] : '';
+  return isGitHubPages ? `/${repoName}` : '';
+}
+
 function handleEscKey(event) {
   if (event.key === 'Escape') {
     closeModal();
@@ -137,11 +145,10 @@ function createTrackList(tracks) {
       link.title = `Watch ${track.strTrack} on YouTube`;
       link.innerHTML = `
         <svg class="icon-youtube" width="24" height="24">
-          <use href="img/icon.svg#icon-Youtube"></use>
+          <use href="${getBasePath()}/img/icon.svg#icon-Youtube"></use>
         </svg>
       `;
       
-      // Add hover effect class
       link.className = 'youtube-link';
       
       linkCol.appendChild(link);
@@ -206,7 +213,7 @@ function renderModalContent(data) {
   closeBtn.type = 'button';
   closeBtn.innerHTML = `
     <svg class="icon" width="24" height="24">
-      <use href="img/icon.svg#icon-close"></use>
+      <use href="${getBasePath()}/img/icon.svg#icon-close"></use>
     </svg>
   `;
   modalContent.appendChild(closeBtn);
@@ -298,6 +305,11 @@ function renderModalContent(data) {
 }
 
 async function openModal(id) {
+  if (!modalSection || !modalContent || !loader) {
+    console.error('Required modal elements not found');
+    return;
+  }
+
   modalSection.classList.add('is-open');
   document.body.classList.add('modal-open');
 
@@ -316,28 +328,42 @@ async function openModal(id) {
     loader.style.display = 'none';
     modalContent.style.display = 'block';
 
-    // Add event listeners
+    // Add event listeners with null checks
     const newCloseBtn = modalContent.querySelector('.modal-close-btn');
     if (newCloseBtn) {
       newCloseBtn.addEventListener('click', closeModal);
     }
-    document.addEventListener('keydown', handleEscKey);
-    modalOverlay.addEventListener('click', handleOverlayClick);
+    
+    // Add event listeners only if elements exist
+    if (document) {
+      document.addEventListener('keydown', handleEscKey);
+    }
+    
+    if (modalOverlay) {
+      modalOverlay.addEventListener('click', handleOverlayClick);
+    }
 
   } catch (error) {
     console.error('Error in modal:', error);
-    loader.style.display = 'none';
-    modalContent.style.display = 'block';
-    modalContent.innerHTML = `
-      <div class="error-message">
-        <p>Sorry, we couldn't load the artist information.</p>
-        <p>Error: ${error.message}</p>
-      </div>
-    `;
+    if (loader && modalContent) {
+      loader.style.display = 'none';
+      modalContent.style.display = 'block';
+      modalContent.innerHTML = `
+        <div class="error-message">
+          <p>Sorry, we couldn't load the artist information.</p>
+          <p>Error: ${error.message}</p>
+        </div>
+      `;
+    }
   }
 }
 
 function closeModal() {
+  if (!modalSection || !modalContent || !loader) {
+    console.error('Required modal elements not found');
+    return;
+  }
+
   modalSection.classList.remove('is-open');
   document.body.classList.remove('modal-open');
 
@@ -345,12 +371,53 @@ function closeModal() {
   modalContent.style.display = 'block';
   modalContent.innerHTML = '';
 
+  // Remove event listeners with null checks
   const closeBtn = modalContent.querySelector('.modal-close-btn');
   if (closeBtn) {
     closeBtn.removeEventListener('click', closeModal);
   }
-  document.removeEventListener('keydown', handleEscKey);
-  modalOverlay.removeEventListener('click', handleOverlayClick);
+  
+  if (document) {
+    document.removeEventListener('keydown', handleEscKey);
+  }
+  
+  if (modalOverlay) {
+    modalOverlay.removeEventListener('click', handleOverlayClick);
+  }
 }
+
+// Initialize modal elements with error handling
+function initializeModal() {
+  try {
+    const modalElements = {
+      modalSection: document.querySelector('.container-modal'),
+      modalOverlay: document.querySelector('.modal'),
+      modalContent: document.querySelector('.container-modal-1'),
+      closeModalBtn: document.querySelector('.modal-close-btn'),
+      loader: document.getElementById('modalLoader')
+    };
+
+    // Check if all required elements exist
+    Object.entries(modalElements).forEach(([name, element]) => {
+      if (!element) {
+        throw new Error(`Required modal element "${name}" not found`);
+      }
+    });
+
+    // Update global variables
+    window.modalSection = modalElements.modalSection;
+    window.modalOverlay = modalElements.modalOverlay;
+    window.modalContent = modalElements.modalContent;
+    window.closeModalBtn = modalElements.closeModalBtn;
+    window.loader = modalElements.loader;
+
+    console.log('Modal initialized successfully');
+  } catch (error) {
+    console.error('Error initializing modal:', error);
+  }
+}
+
+// Call initialize function when DOM is loaded
+document.addEventListener('DOMContentLoaded', initializeModal);
 
 export { openModal };
