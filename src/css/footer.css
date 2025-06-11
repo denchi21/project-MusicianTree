@@ -125,10 +125,7 @@
 
 /* ======= Tablet (≥768px) ======= */
 @media (min-width: 768px) {
-  .footer {
-    padding: 64px;
-    /* gap: 64px; */
-  }
+  
 
   .footer-top {
     flex-direction: column;
@@ -166,12 +163,7 @@
 
 /* ======= Desktop (≥1440px) ======= */
 @media (min-width: 1440px) {
-  .footer {
-    width: 1440px;
-    margin: 0 auto;
-    padding: 80px 64px;
-    /* gap: 80px; */
-  }
+  
 
   .footer-divider {
     width: 1312px;
