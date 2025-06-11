@@ -1,6 +1,6 @@
-import { truncateText } from './artists';
+import { truncateText } from './trim-text-helper';
 
-import { loadMoreBtn } from '../main';
+import { loadMoreBtn } from './artists';
 
 
 
@@ -62,15 +62,4 @@ export function hideLoader() {
   loader.classList.add('is-hidden');
   loader.classList.remove('is-active');
 }
-
-// прибирає клас для відображення кнопки load more
-export function hideLoadMoreButton() {
-  loadMoreBtn.classList.add('is-hidden');
-  loadMoreBtn.classList.remove('is-active');
-};
-
-export function showLoadMoreButton() {
-  loadMoreBtn.classList.remove('is-hidden');
-  loadMoreBtn.classList.add('is-active');
-};
 
