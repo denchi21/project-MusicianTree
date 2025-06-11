@@ -24,7 +24,7 @@ export function renderArtists(artists) {
           <p class="artist-description">${truncateText(artist.strBiographyEN, 67)}</p>
           <button type="button" class="artist-learn-btn" data-id="${artist._id}">Learn More
             <svg class="learn-btn-svg">
-               <symbol id="icon-icon" viewBox="0 0 17 32"><path d="M0 31.563l17.067-14.933-17.067-14.933v29.867z"></path></symbol>
+               <use href="img/symbol-defs.svg#icon-icon"></use>
             </svg>
           </button>
     </li>`;
