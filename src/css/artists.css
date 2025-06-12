@@ -156,7 +156,6 @@
 .artist-load-btn:active {
   font-weight: bold;
   background-color: #9763af;
-  color: #764191;
 }
 
 .load-btn-svg {
@@ -216,7 +215,6 @@ font-size: 18px;
   display: none;
 } 
 
-
   .filters {
   font-family: "IBM Plex Sans", sans-serif;
   background-color: #1E1C1F;
@@ -265,6 +263,18 @@ font-size: 18px;
     position: relative;
   }
 
+  .filters-input-btn {
+    position: absolute;
+    top: 50%;
+   left: 0;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 35px;
+    height: 30px;
+  }
+
   .filters-search .filters-input {
     width: 100%;
     padding: 10px 12px 10px 36px;
@@ -281,6 +291,7 @@ font-size: 18px;
     left: 12px;
     transform: translateY(-50%);
     color: rgba(255, 255, 255, 0.6);
+    fill: #ffffff;
     pointer-events: none;
   }
 
@@ -322,7 +333,6 @@ font-size: 18px;
 .filters-input:focus {
   background-color: #1E1C1F;
   outline: none; 
-
 }
 
 /* empty */
@@ -376,10 +386,6 @@ font-size: 18px;
  position: absolute;
  width: 100%;
 }
-
-
-
-
 
 /* --------tablet min-width: 768px----------- */
 
@@ -445,7 +451,6 @@ font-size: 18px;
     right: 0px;
   }
 
-
   .filters {
     background:  #1E1C1F;
   }
@@ -462,7 +467,6 @@ font-size: 18px;
   width: 148px;
   padding: 10px 24px;
 }
-
 }
 
 /* -----------desktop min-width: 1440px------------- */

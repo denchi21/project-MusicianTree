@@ -3,7 +3,7 @@
 /* Показ/скрытие модалки */
 .container-modal {
   position: fixed;
-  top: 0;
+  top: 64px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -15,7 +15,7 @@
 .container-modal.is-open {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .container-modal-1 {
@@ -130,6 +130,8 @@ body.modal-open {
     font-size: 16px;
     line-height: 1.5;
     color: #fff;
+    overflow-y: auto;
+    max-height: 272px;
 }
 
 .folder {
@@ -270,6 +272,9 @@ body.modal-open {
 }
 
 @media screen and (min-width: 768px) {
+    .years-item {
+      max-height: 108px;
+    }
     .container-m {
       max-width: 768px;
       padding: 0 32px;
@@ -296,8 +301,20 @@ body.modal-open {
     .key-info-container {
       grid-template-columns: repeat(4, 1fr);
     }
+    .container-modal-1 {
+      margin-top: 0;
+    }
+    .container-modal {
+      top: 0;
+    }
+    .container-modal.is-open {
+      align-items: center;
+    }
 }
 @media screen and (min-width: 1440px) {
+  .years-item {
+      max-height: 135px;
+    }
     .container-m {
       max-width: 1280px;
       padding: 0 100px;

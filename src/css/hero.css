@@ -13,12 +13,12 @@
     max-width: 375px;
     margin: 0 auto;
     color: #fff;
-    background-image: url('/img/hero/Background1x320-min.jpg');
+    background-image: url('../img/Hero/Background1x320-min.jpg');
     background-repeat: no-repeat;
     background-position: bottom, bottom;
     background-size: contain;
     padding: 0 20px;
-    padding-bottom: 470px;
+    padding-bottom: 500px;
     display: flex;
 }
 
@@ -46,10 +46,6 @@
     font-weight: 400;
     font-size: 18px;
     letter-spacing: 0em;
-}
-
-.button-hero-container {
-    padding-bottom: 64px;
 }
 
 .button-hero {
@@ -90,11 +86,11 @@
         margin: 0 auto;
         padding: 0 32px;
         color: #fff;
-        background-image: url('/img/hero/Background1x768-min.jpg');
+        background-image: url('../img/Hero/Background1x768-min.jpg');
         background-repeat: no-repeat;
         background-position: bottom;
         background-size: contain;
-        padding-bottom: 670px;
+        padding-bottom: 720px;
         display: flex;
     }
     
@@ -160,8 +156,8 @@
         padding: 0 64px;
         color: #fff;
         background-image: linear-gradient(to top, rgba(6, 3, 7) 0%, rgba(35, 19, 43, 0) 12%),
-                            linear-gradient(to bottom, rgba(6, 3, 7) 7%, rgba(35, 19, 43, 0) 21%),
-                            url('/img/hero/Background1x1440-min.jpg');
+            linear-gradient(to bottom, rgba(6, 3, 7) 7%, rgba(35, 19, 43, 0) 21%),
+            url('../img/Hero/Background1x1440-min.jpg');
         background-repeat: no-repeat;
         background-position: right;
         background-size: contain;
@@ -230,7 +226,7 @@
     .container-hero {
         background-image: linear-gradient(to top, rgba(6, 3, 7) 0%, rgba(35, 19, 43, 0) 12%),
             linear-gradient(to bottom, rgba(6, 3, 7) 7%, rgba(35, 19, 43, 0) 21%),
-            url('/img/hero/Background@2x320-min.jpg');
+            url('../img/Hero/Background@2x320-min.jpg');
     }
 }
 
@@ -238,7 +234,7 @@
     .container-hero {
         background-image: linear-gradient(to top, rgba(6, 3, 7) 0%, rgba(35, 19, 43, 0) 12%),
             linear-gradient(to bottom, rgba(6, 3, 7) 7%, rgba(35, 19, 43, 0) 21%),
-            url('/img/hero/Background@2x768-min.jpg');
+            url('../img/Hero/Background@2x768-min.jpg');
     }
 }
 
@@ -246,6 +242,6 @@
     .container-hero {
         background-image: linear-gradient(to top, rgba(6, 3, 7) 0%, rgba(35, 19, 43, 0) 12%),
             linear-gradient(to bottom, rgba(6, 3, 7) 7%, rgba(35, 19, 43, 0) 21%),
-            url('/img/hero/Background@2x1440-min.jpg');
+            url('../img/Hero/Background@2x1440-min.jpg');
     }
 }

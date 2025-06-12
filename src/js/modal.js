@@ -1,4 +1,5 @@
 import { fetchArtistData } from "./basicAPI";
+import spritePath from '../img/symbol-defs.svg?url';
 
 const modalSection = document.querySelector('.container-modal');
 const modalOverlay = modalSection.querySelector('.modal');
@@ -6,13 +7,6 @@ const modalContent = modalSection.querySelector('.container-modal-1');
 const closeModalBtn = modalSection.querySelector('.modal-close-btn');
 const loader = document.getElementById('modalLoader');
 
-function getBasePath() {
-  // Check if we're on GitHub Pages
-  const isGitHubPages = window.location.hostname.includes('github.io');
-  // Get the repository name from the path if on GitHub Pages
-  const repoName = isGitHubPages ? window.location.pathname.split('/')[1] : '';
-  return isGitHubPages ? `/${repoName}` : '';
-}
 
 function handleEscKey(event) {
   if (event.key === 'Escape') {
@@ -90,7 +84,7 @@ function transformTracksToAlbums(tracksList) {
     }
 
     // Transform track data and handle YouTube URL
-    const youtubeUrl = track.strMusicVid || 
+    const youtubeUrl = track.movie || 
                       (track.strTrackThumb && track.strTrackThumb.replace('/preview', '')) || 
                       null;
 
@@ -146,7 +140,7 @@ function createTrackList(tracks) {
       link.title = `Watch ${track.strTrack} on YouTube`;
       link.innerHTML = `
         <svg class="icon-youtube" width="24" height="24">
-          <use href="${getBasePath()}/img/icon.svg#icon-Youtube"></use>
+          <use href="${spritePath}#icon-Youtube"></use>
         </svg>
       `;
       
@@ -216,7 +210,7 @@ function renderModalContent(data) {
   closeBtn.type = 'button';
   closeBtn.innerHTML = `
     <svg class="icon" width="24" height="24">
-      <use href="${getBasePath()}/img/icon.svg#icon-close"></use>
+      <use href="./img/symbol-defs.svg#icon-close"></use>
     </svg>
   `;
   modalContent.appendChild(closeBtn);
@@ -308,79 +302,44 @@ function renderModalContent(data) {
 }
 
 async function openModal(id) {
-  if (!modalSection || !modalContent || !loader) {
-    return;
-  }
-
-  modalSection.classList.add('is-open');
-  document.body.classList.add('modal-open');
-
-  loader.style.display = 'block';
-  modalContent.style.display = 'none';
-
   try {
-    const artistData = await fetchArtistData(id);
+    modalSection.classList.add('is-open');
     
-    if (!artistData) {
-      throw new Error('No artist data received');
+    // Show loader
+    if (loader) {
+      loader.style.display = 'block';
     }
 
-    renderModalContent(artistData);
+    // Fetch data
+    const data = await fetchArtistData(id);
     
-    loader.style.display = 'none';
-    modalContent.style.display = 'block';
-
-    const newCloseBtn = modalContent.querySelector('.modal-close-btn');
-    if (newCloseBtn) {
-      newCloseBtn.addEventListener('click', closeModal);
-    }
-    
-    if (document) {
-      document.addEventListener('keydown', handleEscKey);
-    }
-    
-    if (modalOverlay) {
-      modalOverlay.addEventListener('click', handleOverlayClick);
-    }
-
-  } catch (error) {
-    if (loader && modalContent) {
+    // Hide loader
+    if (loader) {
       loader.style.display = 'none';
-      modalContent.style.display = 'block';
-      modalContent.innerHTML = `
-        <div class="error-message">
-          <p>Sorry, we couldn't load the artist information.</p>
-          <p>Error: ${error.message}</p>
-        </div>
-      `;
     }
+
+    // Render content
+    renderModalContent(data);
+
+    // Add event listeners
+    document.addEventListener('keydown', handleEscKey);
+    modalSection.addEventListener('click', (event) => {
+      // Проверяем, что клик был именно по бэкдропу (modalSection), а не по контенту
+      if (event.target === modalSection) {
+        closeModal();
+      }
+    });
+  } catch (error) {
+    console.error('Error opening modal:', error);
+    closeModal();
   }
 }
 
 function closeModal() {
-  if (!modalSection || !modalContent || !loader) {
-    return;
-  }
-
   modalSection.classList.remove('is-open');
-  document.body.classList.remove('modal-open');
-
-  loader.style.display = 'none';
-  modalContent.style.display = 'block';
+  document.removeEventListener('keydown', handleEscKey);
+  modalSection.removeEventListener('click', handleOverlayClick);
   modalContent.innerHTML = '';
-
-  const closeBtn = modalContent.querySelector('.modal-close-btn');
-  if (closeBtn) {
-    closeBtn.removeEventListener('click', closeModal);
-  }
-  
-  if (document) {
-    document.removeEventListener('keydown', handleEscKey);
-  }
-  
-  if (modalOverlay) {
-    modalOverlay.removeEventListener('click', handleOverlayClick);
-  }
 }
 
 function initializeModal() {
