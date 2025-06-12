@@ -83,7 +83,7 @@ function transformTracksToAlbums(tracksList) {
     }
 
     // Transform track data and handle YouTube URL
-    const youtubeUrl = track.strMusicVid || 
+    const youtubeUrl = track.movie || 
                       (track.strTrackThumb && track.strTrackThumb.replace('/preview', '')) || 
                       null;
 
