@@ -35,7 +35,9 @@ export function initArtists() {
   searchInputBtn.addEventListener('submit', handleSearchInputBtn);
   resetBtns.forEach(resetBtn => {
     resetBtn.addEventListener('click', handleResetPush);
-  });
+    console.log(resetBtn)
+  }
+);
 
   searchBtnMobile.addEventListener('click', () => {
     jsForm.classList.toggle('is-open');
@@ -146,13 +148,13 @@ function handleGenreInput(event) {
 }
 
 // reset всіх даних desctop
-function handleResetPush (event) {
+function handleResetPush () {
  page = 1;
  searchName = '';
  genre = '';
  sortName = '';
 
- searchInputBtn.value = '';
+ jsForm.querySelector('input[name="search"]').value = '';
  sortSelect.value = '';
  genreSelect.value = '';
 
