@@ -43,9 +43,11 @@ body.modal-open {
     font-size: 0;
     background: #060307;
     width: 288px;
-    padding: 48px 16px;
+    padding: 52px 8px;
     position: relative;
     border-radius: 16px;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 
@@ -62,8 +64,8 @@ body.modal-open {
   position: absolute;
   top: 24px;
   right: 24px;
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   background-color: transparent;
   border: none;
   padding: 0;
@@ -98,19 +100,18 @@ body.modal-open {
     line-height: 1.5;
     text-align: center;
     color: #fff;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 .artist-info-container {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  margin-bottom: 32px;
+  gap: 32px;
 }
 
 .artist-photo{
-  width: 100%;
-  height: auto;
+  width: 272px;
+  height: 167px;
   border-radius: 16px;
   object-fit: cover;
 }
@@ -279,13 +280,18 @@ body.modal-open {
       max-width: 768px;
       padding: 0 32px;
     }
+
+    .title-name {
+      margin-bottom: 48px;
+    }
+
+
     .artist-info-container {
       flex-direction: row;
-      gap: 32px;
     }
     .artist-photo {
-      width: 300px;
-      height: 300px;
+      width: 654px;
+      height: 402px;
       flex-shrink: 0;
     }
     .folder {
@@ -323,17 +329,19 @@ body.modal-open {
       flex: 1;
     }
     .album-box {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
     }
     .modal {
-      width: 1080px;
-      padding: 64px 32px;
+      width: 1184px;
+      padding: 64px 64px;
     }
     .artist-photo {
-      width: 400px;
-      height: 400px;
+      width: 576px;
+      height: 354.1px;
     }
 }
+
+
 
 
 .loader-modal {
