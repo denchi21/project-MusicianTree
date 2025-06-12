@@ -1,4 +1,5 @@
 import { fetchArtistData } from "./basicAPI";
+import spritePath from '../img/symbol-defs.svg?url';
 
 const modalSection = document.querySelector('.container-modal');
 const modalOverlay = modalSection.querySelector('.modal');
@@ -139,7 +140,7 @@ function createTrackList(tracks) {
       link.title = `Watch ${track.strTrack} on YouTube`;
       link.innerHTML = `
         <svg class="icon-youtube" width="24" height="24">
-          <use href="./img/symbol-defs.svg#icon-Youtube"></use>
+          <use href="${spritePath}#icon-Youtube"></use>
         </svg>
       `;
       
