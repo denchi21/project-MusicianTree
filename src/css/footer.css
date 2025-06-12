@@ -1,30 +1,46 @@
-/* ======= Base (Mobile First) ======= */
+/* ======= Global Styles ======= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* ======= Container ======= */
+.container {
+  width: 100%;
+  max-width: 1312px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ======= Footer Base ======= */
 .footer {
-  display: flex;
-  padding: 48px 20px;
-  flex-direction: column;
-  align-items: center;
-  /* gap: 48px; */
-  align-self: stretch;
-  background-color: #000;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  box-sizing: border-box;
+  padding: 48px 0px;
+  background-color: #000;
 }
 
 .footer-top {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px; /* ← було 32px */
-  align-self: stretch;
+  gap: 32px;
 }
 
 .footer-logo {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 32px;
 }
 
 .logo-desktop,
@@ -49,8 +65,7 @@
   gap: 32px;
   list-style: none;
   padding: 0;
-  margin: 0;
-  margin-bottom: 48px; /* ← відступ після меню */
+  margin-bottom: 32px;
 }
 
 .footer-menu a {
@@ -65,26 +80,14 @@
 .footer-menu a:hover,
 .footer-menu a:focus,
 .footer-menu a:active {
-  color: var(--Color-White, #fff);
-  font-family: 'IBM Plex Sans';
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 150%;
-  text-decoration-line: underline;
-  text-decoration-style: solid;
-  text-decoration-skip-ink: auto;
-  text-decoration-thickness: auto;
-  text-underline-offset: auto;
-  text-underline-position: from-font;
+  text-decoration: underline;
 }
 
 .footer-bottom {
   display: flex;
-  flex-direction: column-reverse; /* ← важливо */
+  flex-direction: column-reverse;
   align-items: center;
   gap: 32px;
-  align-self: stretch;
 }
 
 .footer-socials {
@@ -128,17 +131,10 @@
 @media (min-width: 768px) {
   .footer {
     padding: 64px;
-    /* gap: 64px; */
-  }
-
-  .footer-top {
-    flex-direction: column;
   }
 
   .logo-desktop {
     display: block;
-    width: 106.636px;
-    height: 30.201px;
   }
 
   .logo-mobile {
@@ -147,6 +143,7 @@
 
   .footer-menu {
     flex-direction: row;
+    margin-bottom: 80px;
   }
 
   .footer-socials {
@@ -168,10 +165,7 @@
 /* ======= Desktop (≥1440px) ======= */
 @media (min-width: 1440px) {
   .footer {
-    width: 1440px;
-    margin: 0 auto;
     padding: 80px 64px;
-    /* gap: 80px; */
   }
 
   .footer-divider {
