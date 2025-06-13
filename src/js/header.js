@@ -6,6 +6,8 @@ const desktopNavLinks = document.querySelectorAll('.nav-link');
 const pageHeader = document.querySelector('.page-header');
 const scrollToTopBtnDesktop = document.getElementById('scrollToTopBtnDesktop');
 const scrollToTopBtnMobile = document.getElementById('scrollToTopBtnMobile');
+const footerLogo = document.getElementById('footerLogo');
+const footerLogoDesktop = document.getElementById('footerLogoDesktop');
 
 if (burgerBtn) {
   burgerBtn.addEventListener('click', () => {
@@ -92,3 +94,11 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+function scrollToTopFooter(e) {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+footerLogo?.addEventListener('click', scrollToTopFooter);
+footerLogoDesktop?.addEventListener('click', scrollToTopFooter);
