@@ -130,20 +130,22 @@ function handleSearchInputBtn(event) {
  console.log(searchName)
  page = 1;
  loadArtists();
+ jsForm.classList.toggle('is-open');
+ handleResetPush();
 }
 
 
 // пошук по інпуту desctop
-function handleSortInput(event) {
- sortName = event.target.value.trim();
- page = 1;
- loadArtists();
+  function handleSortInput(event) {
+  sortName = event.target.value.trim();
+  page = 1;
+  loadArtists();
 }
 
-function handleGenreInput(event) {
- page = 1;
- genre = event.target.value.trim();
- loadArtists();
+  function handleGenreInput(event) {
+  page = 1;
+  genre = event.target.value.trim();
+  loadArtists();
 }
 
 // reset всіх даних desctop
