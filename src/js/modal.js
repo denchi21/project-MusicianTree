@@ -310,6 +310,7 @@ async function openModal(id) {
   try {
     modalSection.classList.remove('visually-hidden');
     // Show loader
+    document.body.style.overflow = 'hidden';
     if (loader) {
       loader.style.display = 'block';
     }
