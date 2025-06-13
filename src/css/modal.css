@@ -141,11 +141,18 @@ body.modal-open {
   gap: 24px;
 }
 
+
+
 .key-info-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: auto;
+
+  grid-template-rows: auto;
+
   gap: 16px;
+
 }
+
 
 .biography {
   grid-column: 1 / -1;
@@ -160,7 +167,7 @@ body.modal-open {
 .album-box {
   margin-top: 32px;
   display: grid;
-  gap: 24px;
+  gap: 32px;
   grid-template-columns: 1fr;
 }
 
@@ -286,9 +293,6 @@ body.modal-open {
     }
 
 
-    .artist-info-container {
-      flex-direction: row;
-    }
     .artist-photo {
       width: 654px;
       height: 402px;
@@ -305,8 +309,10 @@ body.modal-open {
       padding: 64px 24px;
     }
     .key-info-container {
-      grid-template-columns: repeat(4, 1fr);
-    }
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        gap: 24px;   }
     .container-modal-1 {
       margin-top: 0;
     }
@@ -325,11 +331,18 @@ body.modal-open {
       max-width: 1280px;
       padding: 0 100px;
     }
+
+   .artist-info-container {
+          flex-direction: row;
+        }
+     
     .folder {
       flex: 1;
     }
+
     .album-box {
       grid-template-columns: repeat(4, 1fr);
+      margin-top: 48px;
     }
     .modal {
       width: 1184px;
@@ -405,3 +418,29 @@ body.modal-open {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+
+
+/* .folder-box:folder-box(1){
+  order: 2;
+} */
+
+/* .folder-box:nth-child(1) {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.folder-box:nth-child(2) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.folder-box:nth-child(3) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.folder-box:nth-child(4) {
+  grid-column: 2;
+  grid-row: 1;
+} */
