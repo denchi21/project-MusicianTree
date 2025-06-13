@@ -129,7 +129,9 @@ function handleSearchInputBtn(event) {
  searchName = event.target.search.value.trim();
  console.log(searchName)
  page = 1;
- loadArtists();
+  loadArtists();
+  jsForm.classList.toggle(`is-open`);
+  handleResetPush();
 }
 
 
