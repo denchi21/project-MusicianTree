@@ -133,7 +133,6 @@ function handleSearchInputBtn(event) {
  handleResetPush();
 }
 
-
 // пошук по інпуту desctop
   function handleSortInput(event) {
   sortName = event.target.value.trim();
