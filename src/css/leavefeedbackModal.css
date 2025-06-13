@@ -1,4 +1,4 @@
-.backdrop {
+.feedback-modal-backdrop {
   position: fixed;
   display: flex;
   left: 0%;
@@ -11,22 +11,36 @@
   align-items: center;
 }
 
-.modal-close {
-  width: 32px;
-  height: 32px;
-  background-color: #060307;
+.feedback-modal-close-btn {
+  position: absolute;
+  font-size: 30px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  top: 10px;
+  right: 10px;
+  opacity: 0;
 }
 
-.modal-name {
-  color: gray;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 150%;
-  background-color: transparent;
-  border: 2px solid #1e1e1e;
+.feedback-modal-mobile-close {
+  position: absolute;
+  font-size: 30px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
 }
 
-.modal-content {
+.feedback-modal-mobile-icon {
+  width: 24px;
+  height: 24px;
+  fill: #fff;
+}
+
+.feedback-modal-window {
   position: relative;
   background-color: #060307;
   color: white;
@@ -40,12 +54,19 @@
   border-radius: 10px;
 }
 
-.client-name {
-  font-family: 'IBM Plex Sans';
+.feedback-modal-content {
+  width: 640px;
+  height: 78px;
+  gap: 8px;
+}
+
+.modal-name {
+  color: gray;
   font-weight: 400;
   font-size: 18px;
   line-height: 150%;
-  color: white;
+  background-color: transparent;
+  border: 2px solid #1e1e1e;
 }
 
 .feedback-title {
@@ -56,19 +77,13 @@
   letter-spacing: -1%;
   line-height: 120%;
 }
-.mobile-menu-icon-modal,
-.close {
-  position: absolute;
-  font-size: 30px;
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
-  top: 10px;
-  right: 10px;
-}
 
-.close {
-  opacity: 0;
+.client-name {
+  font-family: 'IBM Plex Sans';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  color: white;
 }
 
 .modal-content label {
@@ -113,12 +128,6 @@ textarea {
   gap: 8px;
 }
 
-.modal-container {
-  width: 640px;
-  height: 78px;
-  gap: 8px;
-}
-
 .button-send {
   background-color: #764191;
   color: white;
@@ -143,92 +152,92 @@ textarea {
 }
 
 @media (min-width: 768px) {
-  .modal-content {
+  .feedback-modal-window {
     width: 704px;
     height: 688px;
   }
-
   .feedback-title {
     width: 640px;
     height: 53px;
     font-size: 44px;
   }
-
   .button-send {
     width: 340px;
     height: 47px;
   }
-
   .modal-button-text {
     width: 60px;
     height: 27px;
     font-size: 18px;
   }
-
-  .modal-container {
+  .feedback-modal-content {
     width: 640px;
     margin: 0 auto;
   }
 }
 
+.artist-modal-close-btn {
+  right: 16px;
+  top: 16px;
+}
+
 @media (min-width: 1440px) {
-  .modal-content {
+  .feedback-modal-window {
     width: 864px;
     height: 688px;
   }
-
   .feedback-title {
     width: 736px;
     height: 72px;
     font-size: 60px;
   }
-
   .button-send {
     width: 108px;
     height: 47px;
   }
-
   .modal-button-text {
     width: 60px;
     height: 27px;
     font-size: 18px;
   }
-
-  .modal-container {
+  .feedback-modal-content {
     width: 736px;
     margin: 0 auto;
+  }
+  .artist-modal-close-btn {
+    right: 16px;
+    top: 16px;
   }
 }
 
 @media (max-width: 767px) {
-  .modal-content {
+  .feedback-modal-window {
     width: 320px;
     height: 568px;
     padding: 20px;
   }
-
   .button-send {
     width: 288px;
     height: 47px;
     padding: 10px 24px;
   }
-
   .modal-button-text {
     width: 60px;
     height: 27px;
     font-size: 18px;
   }
-
   .feedback-title {
     width: 288px;
     height: 31px;
     font-size: 24px;
   }
-
   textarea {
     height: 80px;
   }
-  .modal-container {
+  .feedback-modal-content {
     width: 100%;
   }
+    .artist-modal-close-btn {
+      right: 47px;
+    }
 }

@@ -155,18 +155,20 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-  const modal = document.querySelector('.backdrop');
-  const modalContent = document.querySelector('.modal-content');
+  const modal = document.querySelector('.feedback-modal-backdrop');
+  const modalContent = document.querySelector('.feedback-modal-window');
   const openModalBtn = document.querySelector('.feedback-button.open-modal');
-  const closeModalBtn = document.querySelector('.close');
+  const closeModalBtn = document.querySelector('.feedback-modal-close-btn');
+  const mobileCloseBtn = document.querySelector('.feedback-modal-mobile-close');
 
-  if (modal && modalContent && openModalBtn && closeModalBtn) {
+  if (modal && modalContent && openModalBtn && (closeModalBtn || mobileCloseBtn)) {
     const openModal = () => {
       modal.classList.remove('visually-hidden');
       modalContent.classList.remove('visually-hidden');
       document.body.style.overflow = 'hidden';
       openModalBtn.removeEventListener('click', openModal);
-      closeModalBtn.addEventListener('click', closeModal);
+      if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+      if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', closeModal);
       modal.addEventListener('click', handleBackdropClick);
       document.addEventListener('keydown', handleEscKey);
     };
@@ -175,7 +177,8 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.classList.add('visually-hidden');
       modalContent.classList.add('visually-hidden');
       document.body.style.overflow = '';
-      closeModalBtn.removeEventListener('click', closeModal);
+      if (closeModalBtn) closeModalBtn.removeEventListener('click', closeModal);
+      if (mobileCloseBtn) mobileCloseBtn.removeEventListener('click', closeModal);
       modal.removeEventListener('click', handleBackdropClick);
       document.removeEventListener('keydown', handleEscKey);
       openModalBtn.addEventListener('click', openModal);
@@ -203,6 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modalContent,
       openModalBtn,
       closeModalBtn,
+      mobileCloseBtn
     });
   }
 });
