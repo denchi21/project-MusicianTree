@@ -2,6 +2,9 @@
   font-size: 0;
 }
 
+html {
+  scroll-margin-top: 72px;
+}
 .page-header {
   position: fixed;
   top: 0;
@@ -141,9 +144,9 @@
 .mobile-nav-link:focus {
   color: #764191;
 }
+
 #about,
 #artists,
 #reviews {
   scroll-margin-top: 72px;
 }
-

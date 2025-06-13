@@ -1,43 +1,13 @@
-const stars = document.querySelectorAll('.star');
-let selectedRating = 0;
+document.getElementById('feedbackForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  // Ваши действия при отправке формы (например, alert или отправка данных)
 
-stars.forEach((star, index) => {
-  star.addEventListener('mouseover', () => {
-    highlightStars(index);
-  });
-
-  star.addEventListener('mouseout', () => {
-    highlightStars(selectedRating - 1);
-  });
-
-  star.addEventListener('click', () => {
-    selectedRating = index + 1;
-    highlightStars(index);
-  });
+  // Закрытие модального окна
+  const backdrop = document.querySelector('.backdrop');
+  const modalContent = document.querySelector('.modal-content');
+  if (backdrop && modalContent) {
+    backdrop.classList.add('visually-hidden');
+    modalContent.classList.add('visually-hidden');
+    document.body.style.overflow = '';
+  }
 });
-
-function highlightStars(index) {
-  stars.forEach((star, i) => {
-    if (i <= index) {
-      star.classList.add('selected');
-    } else {
-      star.classList.remove('selected');
-    }
-  });
-}
-
-document
-  .getElementById('feedbackForm')
-  .addEventListener('submit', function (e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const message = document.getElementById('message').value;
-    if (!selectedRating) {
-      alert('Please select a rating.');
-      return;
-    }
-
-    alert(
-      'Thank you, ${name}! Your feedback was submitted with a rating of ${selectedRating} stars.'
-    );
-  });

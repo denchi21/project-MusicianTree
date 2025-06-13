@@ -27,6 +27,7 @@
 }
 
 .modal-content {
+  position: relative;
   background-color: #060307;
   color: white;
   width: 704px;
@@ -55,14 +56,19 @@
   letter-spacing: -1%;
   line-height: 120%;
 }
-
+.mobile-menu-icon-modal,
 .close {
+  position: absolute;
   font-size: 30px;
   cursor: pointer;
   width: 20px;
   height: 20px;
   top: 10px;
-  left: 10px;
+  right: 10px;
+}
+
+.close {
+  opacity: 0;
 }
 
 .modal-content label {
@@ -86,15 +92,6 @@ textarea {
   height: 100px;
 }
 
-.testimonial {
-  background-color: transparent;
-  border-radius: 8px;
-  padding: 12px;
-  color: #ccc;
-  font-style: italic;
-  margin-bottom: 16px;
-}
-
 .stars {
   margin: 20px 0;
 }
@@ -112,7 +109,6 @@ textarea {
 .modal-button-container {
   display: flex;
   justify-content: center;
-  width: 640px;
   height: 47px;
   gap: 8px;
 }

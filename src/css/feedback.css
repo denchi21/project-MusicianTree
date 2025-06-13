@@ -1,4 +1,4 @@
-.feedback-section#reviews {
+/* .feedback-section#reviews {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
@@ -125,6 +125,19 @@
   opacity: 1;
   border-color: #764191;
   color: #764191;
+}
+
+.swiper-button-prev.inactive,
+.swiper-button-next.inactive {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.swiper-button-prev.inactive:hover,
+.swiper-button-next.inactive:hover {
+  opacity: 0.4;
+  border-color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .swiper-button-prev {
@@ -288,5 +301,319 @@
 
   .feedback-button {
     width: 170px;
+  }
+} */
+
+.feedback-section#reviews {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  background: #060307;
+  position: relative;
+  min-height: 500px;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.feedback-section-title {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 0;
+  text-align: center;
+  display: none;
+}
+
+.feedback-swiper {
+  position: relative;
+}
+
+.swiper-slide {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+  text-align: center;
+}
+
+.feedback-slide-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  min-height: 209px;
+}
+
+.feedback-slide-content {
+  width: 100%;
+  max-width: 256px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feedback-comment {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  max-width: 224px;
+  white-space: normal;
+  word-break: break-word;
+  margin-bottom: 32px;
+}
+
+.feedback-user-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0;
+}
+
+.feedback-user-name {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.feedback-star-rating {
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+.feedback-star-rating svg {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.feedback-star-rating path {
+  transition: fill 0.2s ease;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  padding: 12px;
+  width: 48px;
+  height: 48px;
+  background: #060307;
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.5;
+  transition: opacity 0.3s, border-color 0.3s, color 0.3s;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  opacity: 1;
+  border-color: #764191;
+  color: #764191;
+}
+
+.swiper-button-prev.inactive,
+.swiper-button-next.inactive {
+  opacity: 0.4; /* Легке затемнення на 0.1 */
+  cursor: default; /* Без курсору-поінтера */
+}
+
+.swiper-button-prev.inactive:hover,
+.swiper-button-next.inactive:hover {
+  opacity: 0.4; /* Ховер-ефект відключений */
+  border-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* Повернення до початкового кольору */
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.swiper-button-prev {
+  left: 0;
+}
+
+.swiper-button-next {
+  right: 0;
+}
+
+.feedback-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 16px;
+}
+
+.feedback-pagination-bullet {
+  width: 9px;
+  height: 9px;
+  background-color: #fff;
+  opacity: 0.2;
+  border-radius: 50%;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+
+.feedback-pagination-bullet.active {
+  opacity: 1;
+}
+
+.feedback-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: #764191;
+}
+
+.feedback-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 8px; /* Змінено з 12px на 8px для відповідності макету */
+  border-radius: 12px;
+  padding: 10px 24px;
+  width: 288px; /* Мобільний розмір */
+  height: 47px;
+  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+  background: #764191;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin: 16px auto 0; /* Мобільний верхній відступ від .feedback-pagination */
+  transition: font-weight 0.3s, background-color 0.3s;
+  white-space: nowrap; /* Запобігає перенесенню тексту */
+}
+
+.feedback-button:hover {
+  font-weight: bold;
+  background-color: #9763af;
+}
+
+@media (min-width: 768px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: flex;
+  }
+
+  .feedback-slide-card {
+    min-height: 297px;
+  }
+
+  .feedback-slide-content {
+    max-width: 486px;
+  }
+
+  .feedback-comment {
+    font-size: 26px;
+    max-width: 454px;
+    height: 144px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .feedback-star-rating {
+    margin-top: 32px;
+    margin-bottom: 16px;
+  }
+
+  .feedback-pagination {
+    padding-top: 0;
+  }
+
+  .swiper-button-prev {
+    top: 163px;
+    left: 0;
+    margin-right: 44px;
+  }
+
+  .swiper-button-next {
+    top: 163px;
+    right: 0;
+    margin-left: 44px;
+  }
+
+  .feedback-button {
+    width: 158px; /* Планшетний розмір */
+    margin: 16px auto 0; /* Збережено верхній відступ від .feedback-pagination */
+  }
+}
+
+@media (min-width: 1440px) {
+  .feedback-section#reviews {
+    padding: 112px 0px;
+  }
+
+  .feedback-slide-card {
+    min-height: 397px;
+  }
+
+  .feedback-slide-content {
+    max-width: 834px;
+  }
+
+  .feedback-comment {
+    font-size: 32px;
+    line-height: 1.3;
+    max-width: 802px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .feedback-star-rating {
+    margin-top: 64px;
+    margin-bottom: 16px;
+  }
+
+  .swiper-button-prev {
+    top: 211px;
+    left: 0;
+    margin-right: 175px;
+  }
+
+  .swiper-button-next {
+    top: 211px;
+    right: 0;
+    margin-left: 175px;
+  }
+
+  .feedback-user-info {
+    margin-bottom: 32px;
+  }
+
+  .feedback-button {
+    width: 177px; /* Десктопний розмір */
+    margin: 80px auto 0; /* Змінено верхній відступ на 80px від .feedback-pagination */
   }
 }

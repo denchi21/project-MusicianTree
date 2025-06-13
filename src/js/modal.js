@@ -3,11 +3,19 @@
 import { fetchArtistData } from './basicAPI';
 import spritePath from '../img/symbol-defs.svg?url';
 
+
 const modalSection = document.querySelector('.container-modal');
 const modalOverlay = modalSection.querySelector('.modal');
 const modalContent = modalSection.querySelector('.container-modal-1');
 const closeModalBtn = modalSection.querySelector('.modal-close-btn');
 const loader = document.getElementById('modalLoader');
+
+const modalSection = document.querySelector('.artist-modal-backdrop');
+const modalOverlay = modalSection.querySelector('.artist-modal-window');
+const modalContent = modalSection.querySelector('.artist-modal-content');
+const closeModalBtn = modalSection.querySelector('.artist-modal-close-btn');
+const loader = document.getElementById('artistModalLoader');
+
 
 function handleEscKey(event) {
   if (event.key === 'Escape') {
@@ -16,7 +24,7 @@ function handleEscKey(event) {
 }
 
 function handleOverlayClick(event) {
-  if (!modalContent.contains(event.target)) {
+  if (event.target === modalSection) {
     closeModal();
   }
 }
@@ -194,6 +202,13 @@ function renderModalContent(data) {
       <use href="${spritePath}#icon-close"></use>
     </svg>
   `;
+  /*----------------------------------*/
+  console.log('Close button created:', closeBtn); // Лог для перевірки
+  closeBtn.addEventListener('click', (e) => {
+    console.log('Close button clicked', e.target); // Лог, який не спрацьовує
+    closeModal();
+  });
+  /*----------------------------------*/ 
   modalContent.appendChild(closeBtn);
 
   const titleName = document.createElement('h2');
@@ -257,6 +272,7 @@ function renderModalContent(data) {
 
 async function openModal(id) {
   try {
+
     modalSection.classList.add('is-open');
     if (loader) loader.style.display = 'block';
 
@@ -272,6 +288,26 @@ async function openModal(id) {
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
 
     document.body.classList.add('modal-open');
+
+    modalSection.classList.remove('visually-hidden');
+    // Show loader
+    if (loader) {
+      loader.style.display = 'block';
+    }
+    // Fetch data
+    const data = await fetchArtistData(id);
+    // Hide loader
+    if (loader) {
+      loader.style.display = 'none';
+    }
+    // Render content
+    renderModalContent(data);
+    document.addEventListener('keydown', handleEscKey);
+    modalSection.addEventListener('click', handleOverlayClick);
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', closeModal);
+    }
+
   } catch (error) {
     console.error('Error opening modal:', error);
     closeModal();
@@ -279,9 +315,11 @@ async function openModal(id) {
 }
 
 function closeModal() {
-  modalSection.classList.remove('is-open');
+  console.log('Closing modal');
+  modalSection.classList.add('visually-hidden');
   document.removeEventListener('keydown', handleEscKey);
   modalSection.removeEventListener('click', handleOverlayClick);
+
   modalContent.innerHTML = '';
   document.body.classList.remove('modal-open');
 }
@@ -308,9 +346,20 @@ function initializeModal() {
     window.loader = modalElements.loader;
   } catch (error) {
     throw error;
+
+  if (closeModalBtn) {
+    closeModalBtn.removeEventListener('click', closeModal);
+
   }
+  modalContent.innerHTML = '';
 }
 
-document.addEventListener('DOMContentLoaded', initializeModal);
+document.addEventListener('DOMContentLoaded', () => {
+  window.modalSection = modalSection;
+  window.modalOverlay = modalOverlay;
+  window.modalContent = modalContent;
+  window.closeModalBtn = closeModalBtn;
+  window.loader = loader;
+});
 
 export { openModal };

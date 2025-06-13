@@ -1,37 +1,45 @@
 <div class="backdrop visually-hidden">
   <div class="modal-content visually-hidden">
-    <button type="button" class="close" aria-label="Close">&times;</button>
+    <button type="button" class="close" aria-label="Close">
+      <svg class="mobile-menu-icon" width="24" height="24">
+        <use href="/img/symbol-defs.svg#icon-close"></use>
+      </svg>
+    </button>
+    <button class="mobile-menu-close" type="button" aria-label="Close">
+      <svg class="mobile-menu-icon-modal" width="24" height="24">
+        <use href="/img/symbol-defs.svg#icon-close"></use>
+      </svg>
+    </button>
     <h2 class="feedback-title">Submit feedback</h2>
     <div class="modal-container">
-      <label for="client-name">Name</label>
-      <input
-        type="text"
-        id="client-name"
-        class="modal-name"
-        placeholder="Emily"
-      />
-      <label for="client-message">Message</label>
-      <textarea
-        class="your-message"
-        id="client-message"
-        placeholder="Type your message..."
-      ></textarea>
-      <p class="testimonial">
-        "ArtistsHub has transformed the way I discover new music. It's like
-        having a personal DJ that knows my taste perfectly!"
-      </p>
-      <div class="stars" id="stars">
-        <span data-star="1">&#9733;</span>
-        <span data-star="2">&#9733;</span>
-        <span data-star="3">&#9733;</span>
-        <span data-star="4">&#9733;</span>
-        <span data-star="5">&#9733;</span>
-      </div>
-      <div class="modal-button-container">
-        <button type="submit" class="button-send">
-          <span class="modal-button-text">Submit</span>
-        </button>
-      </div>
+      <form id="feedbackForm">
+        <label for="client-name">Name</label>
+        <input
+          type="text"
+          id="client-name"
+          class="modal-name"
+          placeholder="Emily"
+        />
+        <label for="client-message">Message</label>
+        <textarea
+          class="your-message"
+          id="client-message"
+          placeholder="Type your message..."
+        ></textarea>
+
+        <div class="stars" id="stars">
+          <span data-star="1">&#9733;</span>
+          <span data-star="2">&#9733;</span>
+          <span data-star="3">&#9733;</span>
+          <span data-star="4">&#9733;</span>
+          <span data-star="5">&#9733;</span>
+        </div>
+        <div class="modal-button-container">
+          <button type="submit" class="button-send">
+            <span class="modal-button-text">Submit</span>
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
