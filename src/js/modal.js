@@ -334,7 +334,7 @@ async function openModal(id) {
 }
 
 function closeModal() {
- 
+  document.body.style.overflow = '';
   modalSection.classList.add('visually-hidden');
   document.removeEventListener('keydown', handleEscKey);
   modalSection.removeEventListener('click', handleOverlayClick);
