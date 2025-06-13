@@ -4,12 +4,19 @@
 .container-modal {
   position: fixed;
   top: 64px;
-  left: 0;
+
+  left: 50%;
+    transform: translateX(-50%);
+    /* Центрування по горизонталі */
+    width: 90%;
+
+
+  /* left: 0; */
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .container-modal.is-open {
@@ -19,6 +26,9 @@
 }
 
 .container-modal-1 {
+position: relative;
+top: 0;
+
   max-height: calc(100vh - 40px);
   width: 100%;
   overflow-y: auto;
@@ -316,9 +326,7 @@ body.modal-open {
     .container-modal-1 {
       margin-top: 0;
     }
-    .container-modal {
-      top: 0;
-    }
+
     .container-modal.is-open {
       align-items: center;
     }
@@ -421,9 +429,7 @@ body.modal-open {
 
 
 
-/* .folder-box:folder-box(1){
-  order: 2;
-} */
+
 
 /* .folder-box:nth-child(1) {
   grid-column: 1;

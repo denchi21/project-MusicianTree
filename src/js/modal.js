@@ -4,7 +4,7 @@ import spritePath from '../img/symbol-defs.svg?url';
 const modalSection = document.querySelector('.container-modal');
 const modalOverlay = modalSection.querySelector('.modal');
 const modalContent = modalSection.querySelector('.container-modal-1');
-const closeModalBtn = modalSection.querySelector('.modal-close-btn');
+/* const closeModalBtn = modalSection.querySelector('.modal-close-btn') */;
 const loader = document.getElementById('modalLoader');
 
 
@@ -14,11 +14,14 @@ function handleEscKey(event) {
   }
 }
 
+
 function handleOverlayClick(event) {
   if (!modalContent.contains(event.target)) {
     closeModal();
   }
 }
+
+
 
 function createInfoBlock(title, content) {
   if (!content) return null;
@@ -213,6 +216,13 @@ function renderModalContent(data) {
       <use href="./img/symbol-defs.svg#icon-close"></use>
     </svg>
   `;
+  /*----------------------------------*/
+  console.log('Close button created:', closeBtn); // Лог для перевірки
+  closeBtn.addEventListener('click', (e) => {
+    console.log('Close button clicked', e.target); // Лог, який не спрацьовує
+    closeModal();
+  });
+  /*----------------------------------*/ 
   modalContent.appendChild(closeBtn);
 
   // Add artist name
@@ -328,7 +338,10 @@ async function openModal(id) {
       if (event.target === modalSection) {
         closeModal();
       }
+      
     });
+
+
   } catch (error) {
     console.error('Error opening modal:', error);
     closeModal();
@@ -336,6 +349,7 @@ async function openModal(id) {
 }
 
 function closeModal() {
+  console.log('Closing modal');
   modalSection.classList.remove('is-open');
   document.removeEventListener('keydown', handleEscKey);
   modalSection.removeEventListener('click', handleOverlayClick);
@@ -351,7 +365,7 @@ function initializeModal() {
       closeModalBtn: document.querySelector('.modal-close-btn'),
       loader: document.getElementById('modalLoader')
     };
-
+    console.log('Modal elements initialized:', modalElements);
     Object.entries(modalElements).forEach(([name, element]) => {
       if (!element) {
         throw new Error(`Required modal element "${name}" not found`);
