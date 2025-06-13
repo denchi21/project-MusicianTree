@@ -196,13 +196,12 @@ function createAlbumSection(albums) {
 }
 
 function renderModalContent(data) {
-  console.log('Artist data received:', data);
+ 
   modalContent.innerHTML = '';
 
   // Transform tracksList into albums structure
   const albumsData = transformTracksToAlbums(data.tracksList);
-  console.log('Transformed albums data:', albumsData);
-
+  
   // Add close button
   const closeBtn = document.createElement('button');
   closeBtn.className = 'modal-close-btn';
@@ -213,9 +212,9 @@ function renderModalContent(data) {
     </svg>
   `;
   /*----------------------------------*/
-  console.log('Close button created:', closeBtn); // Лог для перевірки
+  
   closeBtn.addEventListener('click', (e) => {
-    console.log('Close button clicked', e.target); // Лог, який не спрацьовує
+    
     closeModal();
   });
   /*----------------------------------*/ 
@@ -334,7 +333,7 @@ async function openModal(id) {
 }
 
 function closeModal() {
-  console.log('Closing modal');
+ 
   modalSection.classList.add('visually-hidden');
   document.removeEventListener('keydown', handleEscKey);
   modalSection.removeEventListener('click', handleOverlayClick);
