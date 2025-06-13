@@ -35,7 +35,6 @@ export function initArtists() {
   searchInputBtn.addEventListener('submit', handleSearchInputBtn);
   resetBtns.forEach(resetBtn => {
     resetBtn.addEventListener('click', handleResetPush);
-    console.log(resetBtn)
   }
 );
 

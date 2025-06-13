@@ -366,7 +366,7 @@ function initializeModal() {
       closeModalBtn: document.querySelector('.modal-close-btn'),
       loader: document.getElementById('modalLoader')
     };
-    console.log('Modal elements initialized:', modalElements);
+    
     Object.entries(modalElements).forEach(([name, element]) => {
       if (!element) {
         throw new Error(`Required modal element "${name}" not found`);

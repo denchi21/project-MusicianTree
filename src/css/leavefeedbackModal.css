@@ -86,15 +86,6 @@ textarea {
   height: 100px;
 }
 
-.testimonial {
-  background-color: transparent;
-  border-radius: 8px;
-  padding: 12px;
-  color: #ccc;
-  font-style: italic;
-  margin-bottom: 16px;
-}
-
 .stars {
   margin: 20px 0;
 }
@@ -112,7 +103,6 @@ textarea {
 .modal-button-container {
   display: flex;
   justify-content: center;
-  width: 640px;
   height: 47px;
   gap: 8px;
 }
