@@ -144,12 +144,9 @@ html {
 .mobile-nav-link:focus {
   color: #764191;
 }
-<<<<<<< header
-=======
+
 #about,
 #artists,
 #reviews {
   scroll-margin-top: 72px;
 }
-
->>>>>>> main
