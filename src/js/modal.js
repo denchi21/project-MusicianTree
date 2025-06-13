@@ -1,13 +1,11 @@
 import { fetchArtistData } from "./basicAPI";
 import spritePath from '../img/symbol-defs.svg?url';
 
-const modalSection = document.querySelector('.container-modal');
-const modalOverlay = modalSection.querySelector('.modal');
-const modalContent = modalSection.querySelector('.container-modal-1');
-/* const closeModalBtn = modalSection.querySelector('.modal-close-btn') */;
-const loader = document.getElementById('modalLoader');
-
-
+const modalSection = document.querySelector('.artist-modal-backdrop');
+const modalOverlay = modalSection.querySelector('.artist-modal-window');
+const modalContent = modalSection.querySelector('.artist-modal-content');
+const closeModalBtn = modalSection.querySelector('.artist-modal-close-btn');
+const loader = document.getElementById('artistModalLoader');
 
 function handleEscKey(event) {
   if (event.key === 'Escape') {
@@ -15,14 +13,11 @@ function handleEscKey(event) {
   }
 }
 
-
 function handleOverlayClick(event) {
-  if (!modalContent.contains(event.target)) {
+  if (event.target === modalSection) {
     closeModal();
   }
 }
-
-
 
 function createInfoBlock(title, content) {
   if (!content) return null;
@@ -314,35 +309,24 @@ function renderModalContent(data) {
 
 async function openModal(id) {
   try {
-    modalSection.classList.add('is-open');
-    
+    modalSection.classList.remove('visually-hidden');
     // Show loader
     if (loader) {
       loader.style.display = 'block';
     }
-
     // Fetch data
     const data = await fetchArtistData(id);
-    
     // Hide loader
     if (loader) {
       loader.style.display = 'none';
     }
-
     // Render content
     renderModalContent(data);
-
-    // Add event listeners
     document.addEventListener('keydown', handleEscKey);
-    modalSection.addEventListener('click', (event) => {
-      // Проверяем, что клик был именно по бэкдропу (modalSection), а не по контенту
-      if (event.target === modalSection) {
-        closeModal();
-      }
-      
-    });
-
-
+    modalSection.addEventListener('click', handleOverlayClick);
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', closeModal);
+    }
   } catch (error) {
     console.error('Error opening modal:', error);
     closeModal();
@@ -351,38 +335,21 @@ async function openModal(id) {
 
 function closeModal() {
   console.log('Closing modal');
-  modalSection.classList.remove('is-open');
+  modalSection.classList.add('visually-hidden');
   document.removeEventListener('keydown', handleEscKey);
   modalSection.removeEventListener('click', handleOverlayClick);
+  if (closeModalBtn) {
+    closeModalBtn.removeEventListener('click', closeModal);
+  }
   modalContent.innerHTML = '';
 }
 
-function initializeModal() {
-  try {
-    const modalElements = {
-      modalSection: document.querySelector('.container-modal'),
-      modalOverlay: document.querySelector('.modal'),
-      modalContent: document.querySelector('.container-modal-1'),
-      closeModalBtn: document.querySelector('.modal-close-btn'),
-      loader: document.getElementById('modalLoader')
-    };
-    
-    Object.entries(modalElements).forEach(([name, element]) => {
-      if (!element) {
-        throw new Error(`Required modal element "${name}" not found`);
-      }
-    });
-
-    window.modalSection = modalElements.modalSection;
-    window.modalOverlay = modalElements.modalOverlay;
-    window.modalContent = modalElements.modalContent;
-    window.closeModalBtn = modalElements.closeModalBtn;
-    window.loader = modalElements.loader;
-  } catch (error) {
-    throw error;
-  }
-}
-
-document.addEventListener('DOMContentLoaded', initializeModal);
+document.addEventListener('DOMContentLoaded', () => {
+  window.modalSection = modalSection;
+  window.modalOverlay = modalOverlay;
+  window.modalContent = modalContent;
+  window.closeModalBtn = closeModalBtn;
+  window.loader = loader;
+});
 
 export { openModal };
