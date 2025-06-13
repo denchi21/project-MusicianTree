@@ -1,3 +1,97 @@
-.about {
-    font-size: 0;
+.aboutUS {
+  padding: 64px 0;
+}
+
+.img-team {
+  width: 100%;
+  border: 1px solid #000;
+  border-radius: 20px;
+  margin-bottom: 32px;
+  display: block;
+}
+
+/* Логотип — курсор якщо клікабельний */
+.logo-icon {
+  margin-bottom: 16px;
+  fill: #fff;
+  cursor: default;
+}
+
+.aboutUS-title {
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 53px;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.aboutUS-text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  color: #fff;
+}
+
+/* Tablet (768px) */
+@media screen and (min-width: 768px) {
+  .aboutUS .container {
+    text-align: left;
+  }
+
+  .img-team {
+    margin-bottom: 24px;
+  }
+
+  .logo-icon {
+    margin-bottom: 24px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .aboutUS-title {
+    font-size: 44px;
+    margin-bottom: 24px;
+  }
+
+  .aboutUS-text {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
+/* Desktop (1440px) */
+@media screen and (min-width: 1440px) {
+  .aboutUS .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .img-team {
+    margin-bottom: 0;
+  }
+
+  .logo-icon {
+    margin-bottom: 24px;
+  }
+
+  .text-content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 32px;
+  }
+
+  .aboutUS-title {
+    font-size: 60px;
+    line-height: 72px;
+  }
+
+  .aboutUS-text {
+    font-size: 20px;
+    line-height: 30px;
+  }
 }

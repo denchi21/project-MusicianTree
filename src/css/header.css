@@ -114,6 +114,7 @@ html {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 39px;
+  margin-top: 8px
 }
 
 .mobile-menu-close {
@@ -143,3 +144,12 @@ html {
 .mobile-nav-link:focus {
   color: #764191;
 }
+<<<<<<< header
+=======
+#about,
+#artists,
+#reviews {
+  scroll-margin-top: 72px;
+}
+
+>>>>>>> main

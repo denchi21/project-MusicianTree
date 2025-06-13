@@ -1,0 +1,238 @@
+.backdrop {
+  position: fixed;
+  display: flex;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0.5);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-close {
+  width: 32px;
+  height: 32px;
+  background-color: #060307;
+}
+
+.modal-name {
+  color: gray;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  background-color: transparent;
+  border: 2px solid #1e1e1e;
+}
+
+.modal-content {
+  background-color: #060307;
+  color: white;
+  width: 704px;
+  height: 688px;
+  padding: 64px 32px;
+  padding-bottom: 64px;
+  box-sizing: border-box;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0, 3);
+  gap: 48px;
+  border-radius: 10px;
+}
+
+.client-name {
+  font-family: 'IBM Plex Sans';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  color: white;
+}
+
+.feedback-title {
+  font-family: 'Epilogue', sans-serif;
+  color: white;
+  gap: 16px;
+  text-align: center;
+  letter-spacing: -1%;
+  line-height: 120%;
+}
+
+.close {
+  font-size: 30px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  top: 10px;
+  left: 10px;
+}
+
+.modal-content label {
+  display: block;
+  margin: 12px 0 6px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: #1e1e1e;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+}
+
+.testimonial {
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 12px;
+  color: #ccc;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.stars {
+  margin: 20px 0;
+}
+
+.stars span {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.stars span.selected {
+  color: #764191;
+}
+
+.modal-button-container {
+  display: flex;
+  justify-content: center;
+  width: 640px;
+  height: 47px;
+  gap: 8px;
+}
+
+.modal-container {
+  width: 640px;
+  height: 78px;
+  gap: 8px;
+}
+
+.button-send {
+  background-color: #764191;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  gap: 8px;
+  border: none;
+}
+
+.modal-button-text {
+  width: 60px;
+  height: 27px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 150%;
+}
+
+.your-message {
+  background-color: transparent;
+  border: 2px solid #1e1e1e;
+}
+
+@media (min-width: 768px) {
+  .modal-content {
+    width: 704px;
+    height: 688px;
+  }
+
+  .feedback-title {
+    width: 640px;
+    height: 53px;
+    font-size: 44px;
+  }
+
+  .button-send {
+    width: 340px;
+    height: 47px;
+  }
+
+  .modal-button-text {
+    width: 60px;
+    height: 27px;
+    font-size: 18px;
+  }
+
+  .modal-container {
+    width: 640px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1440px) {
+  .modal-content {
+    width: 864px;
+    height: 688px;
+  }
+
+  .feedback-title {
+    width: 736px;
+    height: 72px;
+    font-size: 60px;
+  }
+
+  .button-send {
+    width: 108px;
+    height: 47px;
+  }
+
+  .modal-button-text {
+    width: 60px;
+    height: 27px;
+    font-size: 18px;
+  }
+
+  .modal-container {
+    width: 736px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .modal-content {
+    width: 320px;
+    height: 568px;
+    padding: 20px;
+  }
+
+  .button-send {
+    width: 288px;
+    height: 47px;
+    padding: 10px 24px;
+  }
+
+  .modal-button-text {
+    width: 60px;
+    height: 27px;
+    font-size: 18px;
+  }
+
+  .feedback-title {
+    width: 288px;
+    height: 31px;
+    font-size: 24px;
+  }
+
+  textarea {
+    height: 80px;
+  }
+  .modal-container {
+    width: 100%;
+  }
+}
