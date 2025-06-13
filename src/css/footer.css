@@ -1,14 +1,11 @@
 /* ======= Base (Mobile First) ======= */
 .footer {
   display: flex;
-  padding: 48px 20px;
+  padding: 48px 0;
   flex-direction: column;
   align-items: center;
-  /* gap: 48px; */
+
   align-self: stretch;
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
   box-sizing: border-box;
 }
 
@@ -16,7 +13,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px; /* ← було 32px */
+  gap: 32px;
   align-self: stretch;
 }
 
@@ -24,12 +21,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  fill: #764191;
 }
 
 .logo-desktop,
 .logo-mobile {
-  width: 106.636px;
-  height: 30.201px;
   flex-shrink: 0;
 }
 
@@ -39,6 +36,7 @@
 
 .logo-mobile {
   display: block;
+  align-items: center;
 }
 
 .footer-menu {
@@ -52,7 +50,7 @@
   margin-bottom: 48px; /* ← відступ після меню */
 }
 
-.footer-menu a {
+.footer-menu {
   color: #fff;
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 16px;
@@ -80,7 +78,7 @@
 
 .footer-bottom {
   display: flex;
-  flex-direction: column-reverse; /* ← важливо */
+  flex-direction: column-reverse;
   align-items: center;
   gap: 32px;
   align-self: stretch;
@@ -95,6 +93,7 @@
   width: 40px;
   height: 40px;
   transition: transform 0.3s ease;
+  fill: #fff;
 }
 
 .footer-socials svg:hover {
@@ -125,16 +124,16 @@
 
 /* ======= Tablet (≥768px) ======= */
 @media (min-width: 768px) {
-  
-
+  .container {
+    width: 100%;
+  }
   .footer-top {
     flex-direction: column;
   }
 
   .logo-desktop {
     display: block;
-    width: 106.636px;
-    height: 30.201px;
+    align-items: center;
   }
 
   .logo-mobile {
@@ -159,13 +158,18 @@
     flex-direction: row;
     justify-content: space-between;
   }
+
+  .footer-copy {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+  }
 }
 
 /* ======= Desktop (≥1440px) ======= */
 @media (min-width: 1440px) {
-  
-
-  .footer-divider {
-    width: 1312px;
+  .logo-desktop {
+    display: block;
+    align-items: center;
   }
 }
