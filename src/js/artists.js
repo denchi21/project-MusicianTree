@@ -8,7 +8,6 @@ import {
   hideLoader,
 } from './render-functions';
 
-
 // DOM-селектори
 const list = document.querySelector('.artist-list');
 export const loadMoreBtn = document.querySelector('.artist-load-btn');
