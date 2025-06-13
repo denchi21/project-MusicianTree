@@ -310,6 +310,7 @@ async function openModal(id) {
   try {
     modalSection.classList.remove('visually-hidden');
     // Show loader
+    document.body.style.overflow = 'hidden';
     if (loader) {
       loader.style.display = 'block';
     }
@@ -333,7 +334,7 @@ async function openModal(id) {
 }
 
 function closeModal() {
- 
+  document.body.style.overflow = '';
   modalSection.classList.add('visually-hidden');
   document.removeEventListener('keydown', handleEscKey);
   modalSection.removeEventListener('click', handleOverlayClick);
