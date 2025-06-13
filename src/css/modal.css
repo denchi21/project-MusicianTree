@@ -4,12 +4,18 @@
 .container-modal {
   position: fixed;
   top: 64px;
-  left: 0;
+
+  left: 50%;
+  transform: translateX(-50%);
+  /* Центрування по горизонталі */
+  width: 90%;
+
+  /* left: 0; */
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   display: none;
-  z-index: 1000;
+  z-index: 10000;
 }
 
 .container-modal.is-open {
@@ -19,6 +25,9 @@
 }
 
 .container-modal-1 {
+  position: relative;
+  top: 0;
+
   max-height: calc(100vh - 40px);
   width: 100%;
   overflow-y: auto;
@@ -34,22 +43,18 @@ body.modal-open {
   height: 100vh;
 }
 
-
 /* ю */
 
-
-
 .modal {
-    font-size: 0;
-    background: #060307;
-    width: 288px;
-    padding: 52px 8px;
-    position: relative;
-    border-radius: 16px;
-    margin: 0;
-    box-sizing: border-box;
+  font-size: 0;
+  background: #060307;
+  width: 288px;
+  padding: 52px 8px;
+  position: relative;
+  border-radius: 16px;
+  margin: 0;
+  box-sizing: border-box;
 }
-
 
 .janr-item:hover,
 .janr-item:focus {
@@ -58,7 +63,7 @@ body.modal-open {
 .modal-close-btn:focus,
 .modal-close-btn:hover {
   color: gray;
-} 
+}
 
 .modal-close-btn {
   position: absolute;
@@ -79,13 +84,9 @@ body.modal-open {
   justify-content: center;
 }
 
-
-
-
-.icon-youtube{
+.icon-youtube {
   border: none;
-  fill:#fff; 
-
+  fill: #fff;
 }
 
 .container-m {
@@ -93,14 +94,14 @@ body.modal-open {
   margin: 0 auto;
 }
 
-.title-name{
-  font-family: "Epilogue", sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 1.5;
-    text-align: center;
-    color: #fff;
-    margin-bottom: 16px;
+.title-name {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.5;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 16px;
 }
 
 .artist-info-container {
@@ -109,30 +110,29 @@ body.modal-open {
   gap: 32px;
 }
 
-.artist-photo{
+.artist-photo {
   width: 272px;
   height: 167px;
   border-radius: 16px;
   object-fit: cover;
 }
 
-.years-title{
-  font-family: "IBM Plex Sans", sans-serif;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 1.5;
-    color: #fff;
-
+.years-title {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #fff;
 }
 
-.years-item{
-  font-family: "IBM Plex Sans", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #fff;
-    overflow-y: auto;
-    max-height: 272px;
+.years-item {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+  overflow-y: auto;
+  max-height: 272px;
 }
 
 .folder {
@@ -141,8 +141,6 @@ body.modal-open {
   gap: 24px;
 }
 
-
-
 .key-info-container {
   display: grid;
   grid-template-columns: auto;
@@ -150,9 +148,7 @@ body.modal-open {
   grid-template-rows: auto;
 
   gap: 16px;
-
 }
-
 
 .biography {
   grid-column: 1 / -1;
@@ -173,7 +169,7 @@ body.modal-open {
 
 .album-title {
   grid-column: 1 / -1;
-  font-family: "Epilogue", sans-serif;
+  font-family: 'Epilogue', sans-serif;
   font-weight: 700;
   font-size: 24px;
   line-height: 1.3;
@@ -191,7 +187,7 @@ body.modal-open {
 }
 
 .name-album {
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 600;
   font-size: 16px;
   line-height: 1.5;
@@ -221,7 +217,7 @@ body.modal-open {
 }
 
 .track-name-item {
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px;
   line-height: 1.5;
   color: #fff;
@@ -254,7 +250,7 @@ body.modal-open {
 }
 
 .name-column-item {
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 600;
   font-size: 12px;
   line-height: 150%;
@@ -280,82 +276,77 @@ body.modal-open {
 }
 
 @media screen and (min-width: 768px) {
-    .years-item {
-      max-height: 108px;
-    }
-    .container-m {
-      max-width: 768px;
-      padding: 0 32px;
-    }
+  .years-item {
+    max-height: 108px;
+  }
+  .container-m {
+    max-width: 768px;
+    padding: 0 32px;
+  }
 
-    .title-name {
-      margin-bottom: 48px;
-    }
+  .title-name {
+    margin-bottom: 48px;
+  }
 
+  .artist-photo {
+    width: 654px;
+    height: 402px;
+    flex-shrink: 0;
+  }
+  .folder {
+    flex: 1;
+  }
+  .album-box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .modal {
+    width: 704px;
+    padding: 64px 24px;
+  }
+  .key-info-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .container-modal-1 {
+    margin-top: 0;
+  }
 
-    .artist-photo {
-      width: 654px;
-      height: 402px;
-      flex-shrink: 0;
-    }
-    .folder {
-      flex: 1;
-    }
-    .album-box {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .modal {
-      width: 704px;
-      padding: 64px 24px;
-    }
-    .key-info-container {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        grid-template-rows: repeat(2, 1fr);
-        gap: 24px;   }
-    .container-modal-1 {
-      margin-top: 0;
-    }
-    .container-modal {
-      top: 0;
-    }
-    .container-modal.is-open {
-      align-items: center;
-    }
+  .container-modal.is-open {
+    align-items: center;
+  }
 }
 @media screen and (min-width: 1440px) {
   .years-item {
-      max-height: 135px;
-    }
-    .container-m {
-      max-width: 1280px;
-      padding: 0 100px;
-    }
+    max-height: 135px;
+  }
+  .container-m {
+    max-width: 1280px;
+    padding: 0 100px;
+  }
 
-   .artist-info-container {
-          flex-direction: row;
-        }
-     
-    .folder {
-      flex: 1;
-    }
+  .artist-info-container {
+    flex-direction: row;
+  }
 
-    .album-box {
-      grid-template-columns: repeat(4, 1fr);
-      margin-top: 48px;
-    }
-    .modal {
-      width: 1184px;
-      padding: 64px 64px;
-    }
-    .artist-photo {
-      width: 576px;
-      height: 354.1px;
-    }
+  .folder {
+    flex: 1;
+  }
+
+  .album-box {
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 48px;
+  }
+  .modal {
+    width: 1184px;
+    padding: 64px 64px;
+  }
+  .artist-photo {
+    width: 576px;
+    height: 354.1px;
+  }
 }
-
-
-
 
 .loader-modal {
   width: 48px;
@@ -384,7 +375,7 @@ body.modal-open {
 
 .janr-item {
   color: #fff;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px;
   font-weight: 600;
   line-height: 1.5;
@@ -418,12 +409,6 @@ body.modal-open {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
-
-
-/* .folder-box:folder-box(1){
-  order: 2;
-} */
 
 /* .folder-box:nth-child(1) {
   grid-column: 1;

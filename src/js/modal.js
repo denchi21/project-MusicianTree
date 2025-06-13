@@ -1,4 +1,6 @@
-import { fetchArtistData } from "./basicAPI";
+// [назва файла: modal.js]
+
+import { fetchArtistData } from './basicAPI';
 import spritePath from '../img/symbol-defs.svg?url';
 
 const modalSection = document.querySelector('.container-modal');
@@ -6,7 +8,6 @@ const modalOverlay = modalSection.querySelector('.modal');
 const modalContent = modalSection.querySelector('.container-modal-1');
 const closeModalBtn = modalSection.querySelector('.modal-close-btn');
 const loader = document.getElementById('modalLoader');
-
 
 function handleEscKey(event) {
   if (event.key === 'Escape') {
@@ -22,7 +23,7 @@ function handleOverlayClick(event) {
 
 function createInfoBlock(title, content) {
   if (!content) return null;
-  
+
   const box = document.createElement('div');
   box.className = 'folder-box';
 
@@ -57,19 +58,14 @@ function createGenreTags(genres) {
 
 function formatDuration(duration) {
   if (!duration || isNaN(duration)) return '--:--';
-  
-  // Convert duration to seconds if it's in milliseconds
   const seconds = duration > 1000 ? Math.round(duration / 1000) : duration;
-  
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
   return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
 }
 
 function transformTracksToAlbums(tracksList) {
-  if (!Array.isArray(tracksList) || tracksList.length === 0) {
-    return [];
-  }
+  if (!Array.isArray(tracksList) || tracksList.length === 0) return [];
 
   const albumsMap = new Map();
 
@@ -79,19 +75,19 @@ function transformTracksToAlbums(tracksList) {
     if (!albumsMap.has(track.strAlbum)) {
       albumsMap.set(track.strAlbum, {
         strAlbum: track.strAlbum,
-        tracks: []
+        tracks: [],
       });
     }
 
-    // Transform track data and handle YouTube URL
-    const youtubeUrl = track.movie || 
-                      (track.strTrackThumb && track.strTrackThumb.replace('/preview', '')) || 
-                      null;
+    const youtubeUrl =
+      track.movie ||
+      (track.strTrackThumb && track.strTrackThumb.replace('/preview', '')) ||
+      null;
 
     albumsMap.get(track.strAlbum).tracks.push({
       strTrack: track.strTrack,
       intDuration: track.intDuration,
-      strMusicVid: youtubeUrl
+      strMusicVid: youtubeUrl,
     });
   });
 
@@ -99,14 +95,11 @@ function transformTracksToAlbums(tracksList) {
 }
 
 function createTrackList(tracks) {
-  if (!Array.isArray(tracks) || tracks.length === 0) {
-    return null;
-  }
+  if (!Array.isArray(tracks) || tracks.length === 0) return null;
 
   const container = document.createElement('div');
   container.className = 'tracks-container';
 
-  // Create header
   const header = document.createElement('ul');
   header.className = 'track-name';
   header.innerHTML = `
@@ -116,8 +109,7 @@ function createTrackList(tracks) {
   `;
   container.appendChild(header);
 
-  // Create tracks
-  tracks.forEach((track, index) => {
+  tracks.forEach(track => {
     const trackRow = document.createElement('ul');
     trackRow.className = 'track-name';
 
@@ -138,14 +130,12 @@ function createTrackList(tracks) {
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
       link.title = `Watch ${track.strTrack} on YouTube`;
+      link.className = 'youtube-link';
       link.innerHTML = `
         <svg class="icon-youtube" width="24" height="24">
           <use href="${spritePath}#icon-Youtube"></use>
         </svg>
       `;
-      
-      link.className = 'youtube-link';
-      
       linkCol.appendChild(link);
     }
 
@@ -159,9 +149,7 @@ function createTrackList(tracks) {
 }
 
 function createAlbumSection(albums) {
-  if (!Array.isArray(albums) || albums.length === 0) {
-    return null;
-  }
+  if (!Array.isArray(albums) || albums.length === 0) return null;
 
   const container = document.createElement('div');
   container.className = 'album-box';
@@ -183,49 +171,39 @@ function createAlbumSection(albums) {
     albumTitle.textContent = album.strAlbum || 'Untitled Album';
     albumBox.appendChild(albumTitle);
 
-    if (album.tracks && Array.isArray(album.tracks)) {
-      const trackList = createTrackList(album.tracks);
-      if (trackList) {
-        albumBox.appendChild(trackList);
-      }
-    }
+    const trackList = createTrackList(album.tracks);
+    if (trackList) albumBox.appendChild(trackList);
 
-    container.appendChild(albumBox);
+    albumsContainer.appendChild(albumBox);
   });
 
+  container.appendChild(albumsContainer);
   return container;
 }
 
 function renderModalContent(data) {
-  console.log('Artist data received:', data);
   modalContent.innerHTML = '';
 
-  // Transform tracksList into albums structure
   const albumsData = transformTracksToAlbums(data.tracksList);
-  console.log('Transformed albums data:', albumsData);
 
-  // Add close button
   const closeBtn = document.createElement('button');
   closeBtn.className = 'modal-close-btn';
   closeBtn.type = 'button';
   closeBtn.innerHTML = `
     <svg class="icon" width="24" height="24">
-      <use href="./img/symbol-defs.svg#icon-close"></use>
+      <use href="${spritePath}#icon-close"></use>
     </svg>
   `;
   modalContent.appendChild(closeBtn);
 
-  // Add artist name
   const titleName = document.createElement('h2');
   titleName.className = 'title-name';
   titleName.textContent = data.strArtist;
   modalContent.appendChild(titleName);
 
-  // Create artist info container
   const artistInfoContainer = document.createElement('div');
   artistInfoContainer.className = 'artist-info-container';
 
-  // Add artist photo
   if (data.strArtistThumb) {
     const photo = document.createElement('img');
     photo.className = 'artist-photo';
@@ -234,101 +212,66 @@ function renderModalContent(data) {
     artistInfoContainer.appendChild(photo);
   }
 
-  // Create folder for artist info
   const folder = document.createElement('div');
   folder.className = 'folder';
 
-  // Create container for key info (first 4 items)
   const keyInfoContainer = document.createElement('div');
   keyInfoContainer.className = 'key-info-container';
 
-  // Add key information blocks
   const keyInfoBlocks = [
-    { 
-      title: 'Years active', 
-      content: data.intFormedYear ? `${data.intFormedYear}–present` : undefined 
+    {
+      title: 'Years active',
+      content: data.intFormedYear ? `${data.intFormedYear}–present` : undefined,
     },
-    { 
-      title: 'Sex', 
-      content: data.strGender 
-    },
-    { 
-      title: 'Members', 
-      content: data.intMembers || '1'
-    },
-    { 
-      title: 'Country', 
-      content: data.strCountry 
-    }
+    { title: 'Sex', content: data.strGender },
+    { title: 'Members', content: data.intMembers || '1' },
+    { title: 'Country', content: data.strCountry },
   ];
 
   keyInfoBlocks.forEach(block => {
     const infoBlock = createInfoBlock(block.title, block.content);
-    if (infoBlock) {
-      keyInfoContainer.appendChild(infoBlock);
-    }
+    if (infoBlock) keyInfoContainer.appendChild(infoBlock);
   });
 
   folder.appendChild(keyInfoContainer);
 
-  // Add biography separately
   const biographyBlock = createInfoBlock('Biography', data.strBiographyEN);
   if (biographyBlock) {
     biographyBlock.className = 'folder-box biography';
     folder.appendChild(biographyBlock);
   }
 
-  // Add genres
   if (data.genres && Array.isArray(data.genres)) {
     const genresTags = createGenreTags(data.genres);
-    if (genresTags) {
-      folder.appendChild(genresTags);
-    }
+    if (genresTags) folder.appendChild(genresTags);
   }
 
-  // Add folder to artist info container
   artistInfoContainer.appendChild(folder);
   modalContent.appendChild(artistInfoContainer);
 
-  // Add albums section
   if (albumsData.length > 0) {
     const albumsSection = createAlbumSection(albumsData);
-    if (albumsSection) {
-      modalContent.appendChild(albumsSection);
-    }
-  } else {
-    console.log('No albums data found or invalid format');
+    if (albumsSection) modalContent.appendChild(albumsSection);
   }
 }
 
 async function openModal(id) {
   try {
     modalSection.classList.add('is-open');
-    
-    // Show loader
-    if (loader) {
-      loader.style.display = 'block';
-    }
+    if (loader) loader.style.display = 'block';
 
-    // Fetch data
     const data = await fetchArtistData(id);
-    
-    // Hide loader
-    if (loader) {
-      loader.style.display = 'none';
-    }
+    if (loader) loader.style.display = 'none';
 
-    // Render content
     renderModalContent(data);
 
-    // Add event listeners
     document.addEventListener('keydown', handleEscKey);
-    modalSection.addEventListener('click', (event) => {
-      // Проверяем, что клик был именно по бэкдропу (modalSection), а не по контенту
-      if (event.target === modalSection) {
-        closeModal();
-      }
-    });
+    modalSection.addEventListener('click', handleOverlayClick);
+
+    const closeModalBtn = modalContent.querySelector('.modal-close-btn');
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+
+    document.body.classList.add('modal-open');
   } catch (error) {
     console.error('Error opening modal:', error);
     closeModal();
@@ -340,6 +283,7 @@ function closeModal() {
   document.removeEventListener('keydown', handleEscKey);
   modalSection.removeEventListener('click', handleOverlayClick);
   modalContent.innerHTML = '';
+  document.body.classList.remove('modal-open');
 }
 
 function initializeModal() {
@@ -349,13 +293,12 @@ function initializeModal() {
       modalOverlay: document.querySelector('.modal'),
       modalContent: document.querySelector('.container-modal-1'),
       closeModalBtn: document.querySelector('.modal-close-btn'),
-      loader: document.getElementById('modalLoader')
+      loader: document.getElementById('modalLoader'),
     };
 
     Object.entries(modalElements).forEach(([name, element]) => {
-      if (!element) {
+      if (!element)
         throw new Error(`Required modal element "${name}" not found`);
-      }
     });
 
     window.modalSection = modalElements.modalSection;
