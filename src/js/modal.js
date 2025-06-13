@@ -7,12 +7,7 @@ const modalContent = modalSection.querySelector('.container-modal-1');
 const closeModalBtn = modalSection.querySelector('.modal-close-btn');
 const loader = document.getElementById('modalLoader');
 
-modalSection.addEventListener('click', (event) => {
-    if (event.target.close
-st('modal-close-btn')) {
-    closeModal();
-  }
-  });
+
 
 function handleEscKey(event) {
   if (event.key === 'Escape') {
